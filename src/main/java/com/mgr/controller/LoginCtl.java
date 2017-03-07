@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * 主页
- * @author song
+ * @author
  * @time 2017/3/2
  */
 @Controller
@@ -17,9 +17,12 @@ public class LoginCtl {
     @Autowired
     private ParamCfg paramCfg;
 
-    @RequestMapping(value="/login",method= RequestMethod.GET )
+    @RequestMapping(value={"/login","/"},method= RequestMethod.GET )
     public String login(){
-        System.out.println("Welcome to login!");
+        int a = paramCfg.getCoresize();
+        int b = paramCfg.getKeepAliveTime();
+        int c = paramCfg.getMaxsize();
+        System.out.println("Welcome to login! Tp = "+a +'/'+b +'/'+c +'/');
         return "login";
     }
 
@@ -32,6 +35,7 @@ public class LoginCtl {
         System.out.println("Welcome to index!");
         return "index";
     }
+
     /**
      * 页面跳转
      * @param html

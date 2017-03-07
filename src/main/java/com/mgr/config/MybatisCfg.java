@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Mybatis配置类。
  * DB bean 扫描配置
- * @author song
+ * @author
  * @time 2017/03/03
  */
 @Configuration

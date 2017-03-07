@@ -8,26 +8,6 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
         </layout>
     </appender>
-    <!-- 日志输出到邮件 -->
-    <appender name="ERROR_MAIL" class="ch.qos.logback.classic.net.SMTPAppender">
-        <smtpHost>smtp.exmail.qq.com</smtpHost>
-        <smtpPort>465</smtpPort>
-        <SSL>true</SSL>
-        <username>system@atme8.com</username>
-        <password>System2015</password>
-        <!--<to>songshijun@atme8.cn</to>-->
-        <!--<to>liulei@atme8.cn</to>-->
-        <!--<from>system@atme8.com</from>-->
-        <subject>[manager][日志监控]%msg</subject>
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
-        </layout>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
     <!-- 日志输出到文件 -->
     <appender name="alllog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/manager_${SPRING_PROFILES_ACTIVE}.log</file>
@@ -50,23 +30,20 @@
         <root level="info">
             <appender-ref ref="stdout" />
             <appender-ref ref="alllog" />
-            <appender-ref ref="ERROR_MAIL" />
         </root>
     </springProfile>
     <springProfile name="test">
         <root level="info">
             <appender-ref ref="alllog" />
-            <appender-ref ref="ERROR_MAIL" />
         </root>
     </springProfile>
     <springProfile name="prod">
         <root level="info">
             <appender-ref ref="alllog" />
-            <appender-ref ref="ERROR_MAIL" />
         </root>
     </springProfile>
     <!-- Mybatis日志，debug可输出SQL文 -->
-    <logger name="taxstar.dataserver.dao" additivity="false" level="debug">
+    <logger name="com.mgr.dao" additivity="false" level="debug">
         <springProfile name="dev">
             <appender-ref ref="stdout" />
         </springProfile>

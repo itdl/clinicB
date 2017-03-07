@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * 定时器
- * @author songshijun
+ * @author
  * @time 2016/12/15.
  */
 //@Component

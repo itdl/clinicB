@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * mybatis mapper interface
- * @author song
+ * @author
  * @time 2017/3/2.
  */
 public interface IUserSrv {

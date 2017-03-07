@@ -6,43 +6,39 @@ import org.springframework.stereotype.Component;
 
 /**
  * 参数配置读取工具类
- * @author song
+ * @author
  * @time2017/3/3.
  */
 @Component
-@ConfigurationProperties(prefix="init")
+@ConfigurationProperties(prefix="init.pthread")
 public class ParamCfg {
-    @Value("${pthread.coresize}")
-    private int corePoolSize;
-    @Value("${pthread.keepalivetime}")
-    private int keepAliveTime;
-    @Value("${pthread.maxsize}")
-    private int maxPoolSize;
-    @Value("${pthread.queuecapacity}")
-    private int queueCapacity;
+    private int coresize;
+    private int keepalivetime;
+    private int maxsize;
+    private int queuecapacity;
 
-    public int getCorePoolSize() {
-        return corePoolSize;
+    public int getCoresize() {
+        return coresize;
     }
-    public void setCorePoolSize(int corePoolSize) {
-        this.corePoolSize = corePoolSize;
+    public void setCoresize(int coresize) {
+        this.coresize = coresize;
     }
     public int getKeepAliveTime() {
-        return keepAliveTime;
+        return keepalivetime;
     }
-    public void setKeepAliveTime(int keepAliveTime) {
-        this.keepAliveTime = keepAliveTime;
+    public void setKeepAliveTime(int keepalivetime) {
+        this.keepalivetime = keepalivetime;
     }
-    public int getMaxPoolSize() {
-        return maxPoolSize;
+    public int getMaxsize() {
+        return maxsize;
     }
-    public void setMaxPoolSize(int maxPoolSize) {
-        this.maxPoolSize = maxPoolSize;
+    public void setMaxsize(int maxsize) {
+        this.maxsize = maxsize;
     }
     public int getQueueCapacity() {
-        return queueCapacity;
+        return queuecapacity;
     }
-    public void setQueueCapacity(int queueCapacity) {
-        this.queueCapacity = queueCapacity;
+    public void setQueueCapacity(int queuecapacity) {
+        this.queuecapacity = queuecapacity;
     }
 }

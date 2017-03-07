@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2016. Atme Information Technology Co., Ltd. All rights reserved.
- */
 package com;
 
 import org.springframework.boot.SpringApplication;
