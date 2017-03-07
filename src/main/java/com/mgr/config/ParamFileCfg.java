@@ -10,6 +10,5 @@ import org.springframework.context.annotation.PropertySource;
  * @time 2017/3/3.
  */
 @Configuration
-@ConfigurationProperties(prefix = "init")
 @PropertySource("classpath:param.properties")
 public class ParamFileCfg {}

@@ -1,6 +1,7 @@
 package com.mgr.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,14 +10,15 @@ import org.springframework.stereotype.Component;
  * @time2017/3/3.
  */
 @Component
+@ConfigurationProperties(prefix="init")
 public class ParamCfg {
-    @Value("${init.pthread.coresize}")
+    @Value("${pthread.coresize}")
     private int corePoolSize;
-    @Value("${init.pthread.keepalivetime}")
+    @Value("${pthread.keepalivetime}")
     private int keepAliveTime;
-    @Value("${init.pthread.maxsize}")
+    @Value("${pthread.maxsize}")
     private int maxPoolSize;
-    @Value("${init.pthread.queuecapacity}")
+    @Value("${pthread.queuecapacity}")
     private int queueCapacity;
 
     public int getCorePoolSize() {
