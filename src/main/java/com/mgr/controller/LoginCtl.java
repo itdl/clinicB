@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 主页
@@ -17,12 +20,8 @@ public class LoginCtl {
     @Autowired
     private ParamCfg paramCfg;
 
-    @RequestMapping(value={"/login","/"},method= RequestMethod.GET )
+    @RequestMapping(value="/",method= RequestMethod.GET )
     public String login(){
-        int a = paramCfg.getCoresize();
-        int b = paramCfg.getKeepAliveTime();
-        int c = paramCfg.getMaxsize();
-        System.out.println("Welcome to login! Tp = "+a +'/'+b +'/'+c +'/');
         return "login";
     }
 
@@ -31,9 +30,9 @@ public class LoginCtl {
      * @return
      */
     @RequestMapping(value="/index",method= RequestMethod.GET )
-    public String index(){
-        System.out.println("Welcome to index!");
-        return "index";
+    public ModelAndView index(HttpServletRequest req, ModelAndView mv){
+        mv.setViewName("/index");
+        return mv;
     }
 
     /**
