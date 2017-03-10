@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 启动类。
- * @author songshijun
+ * @author
  * @time 2016/12/16
  */
 @SuppressWarnings("deprecation")
