@@ -18,7 +18,7 @@ spring:
     encoding: UTF-8
     mode: HTML5
     suffix: .html
-    prefix: /static/page/
+    prefix: /page/
   #数据源配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
