@@ -403,7 +403,7 @@
 <!--footer-->
 <div th:replace="commn/toolbar :: footer"></div>
 
-<script src="/plugin/bootstrap/js/excanvas.min.js"></script>
+<script src="/plugin/bootstrap/js/excanvas.min.js"/>
 <script src="/plugin/bootstrap/js/jquery.min.js"></script>
 <script src="/plugin/bootstrap/js/jquery.ui.custom.js"></script>
 <script src="/plugin/bootstrap/js/bootstrap.min.js"></script>
@@ -425,20 +425,6 @@
 <script src="/plugin/bootstrap/js/jquery.dataTables.min.js"></script>
 <script src="/plugin/bootstrap/js/matrix.tables.js"></script>
 
-<script type="text/javascript">
-    function goPage(newURL) {
-        if (newURL != "") {
-            if (newURL == "-") {
-                resetMenu();
-            }
-            else {
-                document.location.href = newURL;
-            }
-        }
-    }
-    function resetMenu() {
-        document.gomenu.selector.selectedIndex = 2;
-    }
-</script>
+<script src="/static/appjs/index.js"/>
 </body>
 </html>
