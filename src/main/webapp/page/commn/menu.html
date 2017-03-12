@@ -1,22 +1,25 @@
 <div th:fragment="menu" id="sidebar">
     <ul>
-        <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a></li>
-        <li><a href="/charts"><i class="icon icon-signal"></i> <span>今日门诊</span></a></li>
-        <li class="submenu"><a href="#"><i class="icon icon-th"></i><span>药品管理</span></a>
+        <li class="active"><a href="/index"><i class="icon icon-home"></i><span>首页</span></a></li>
+        <!-- op: <out-patient>缩写 -->
+        <li><a href="/op"><i class="icon icon-signal"></i> <span>今日门诊</span></a></li>
+        <li class="submenu"><a href="javascript:;"><i class="icon icon-th"></i><span>药品管理</span></a>
             <ul>
-                <li><a href="emr/form-common.html">药品库存</a></li>
-                <li><a href="emr/form-validation.html">药品订单</a></li>
+                <li><a href="/drug/stock">药品库存</a></li>
+                <li><a href="/drug/order">药品订单</a></li>
             </ul>
         </li>
-        <li><a href="emr/grid.html"><i class="icon icon-fullscreen"></i> <span>经营统计</span></a></li>
-        <li class="submenu"><a href="#"><i class="icon icon-th-list"></i> <span>诊所管理</span> </a>
+        <!-- oss: <operating statistics>缩写 -->
+        <li><a href="/oss"><i class="icon icon-fullscreen"></i><span>经营统计</span></a></li>
+        <li class="submenu"><a href="javascript:;"><i class="icon icon-th-list"></i><span>诊所管理</span></a>
             <ul>
-                <li><a href="emr/form-common.html">管理员配置</a></li>
-                <li><a href="emr/form-validation.html">诊所员工配置</a></li>
-                <li><a href="emr/form-wizard.html">诊所信息配置</a></li>
+                <!--mgrcfg: manager configure 缩写-->
+                <li><a href="/cmgr/mgrcfg">管理员配置</a></li>
+                <li><a href="/cmgr/staff">诊所员工配置</a></li>
+                <li><a href="/cmgr/info">诊所信息配置</a></li>
             </ul>
         </li>
-        <li class="submenu"><a href="#"><i class="icon icon-file"></i> <span>患者管理</span> </a>
+        <li class="submenu"><a href="javascript:;"><i class="icon icon-file"></i><span>患者管理</span></a>
             <ul>
                 <li><a href="emr/index2.html">首页</a></li>
                 <li><a href="emr/gallery.html">相册</a></li>

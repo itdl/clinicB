@@ -4,7 +4,7 @@ server:
   compression:enabled: true
   connection-timeout: 60000
   session:cookie:http-only: true
-  session:timeout: 3600
+  session:timeout: 1200
   tomcat:uri-encoding: UTF-8
 spring:
   #jsp渲染配置
