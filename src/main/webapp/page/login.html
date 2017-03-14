@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/plugin/bootstrap/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="/plugin/bootstrap/css/googleapis.css"/>
 </head>
-<body>
+<body onkeydown="Login.keyLogin();">
 <div id="loginbox">
     <form id="loginform" class="form-vertical">
         <div class="control-group normal_text"><h3><img src="/plugin/bootstrap/img/logo.png" alt="Logo"/></h3></div>
@@ -42,6 +42,7 @@
 
 <script src="/plugin/bootstrap/js/jquery.min.js"></script>
 <script src="/plugin/bootstrap/js/matrix.login.js"></script>
+<script src="/static/appjs/login.js"></script>
 <script th:inline="javascript">
     $(function(){
         $("#recoverform").css('display',[[${fg}]]=="error"? 'block': 'none');
@@ -50,8 +51,10 @@
         })
     })
     function login() {
-        $("#loginform").submit();
-        return true;
+        var form = $("#loginform")[0];
+        form.action = "/index";
+        form.method = "post";
+        form.submit();
     }
 </script>
 </body>

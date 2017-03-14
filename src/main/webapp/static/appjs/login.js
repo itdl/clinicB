@@ -1,21 +1,23 @@
 var Login = (function($){
     var init = function(){
-        if (window != top) {
-            top.location.href = location.href;
-        }
-        $('#loginBtn').on('click',function(){
-            if($('#userId').val().trim() == ''){
-                $('#errorMsg').html('请输入用户名');
-                return;
-            }
-            if($('#passWord').val().trim() == ''){
-                $('#errorMsg').html('请输入密码');
-                return;
-            }
-            $('#loginForm').submit();
-        });
-    };
+        $("#recoverform").css('display',[[${fg}]]=="error"? 'block': 'none');
+        $("#login").on('click',function(){
+            login();
+        })
 
+    };
+    /**
+     * 登录
+     */
+    var login = function(){
+        var form = $("#loginform")[0];
+        form.action = "/index";
+        form.method = "post";
+        form.submit();
+    }
+    /**
+     * 回车事件
+     */
     var keyLogin = function(){
         if (event.keyCode==13)
             $("#loginBtn").click(); //调用登录按钮的登录事件

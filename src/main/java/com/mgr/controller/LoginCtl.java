@@ -42,7 +42,7 @@ public class LoginCtl {
      * @param mv
      * @return
      */
-    @RequestMapping(value="/login",method= RequestMethod.POST )
+    @RequestMapping(value="/index",method= RequestMethod.POST )
     public ModelAndView index(HttpServletRequest req, HttpServletResponse res, ModelAndView mv){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("userName",req.getParameter("uName"));
@@ -51,15 +51,7 @@ public class LoginCtl {
         if( user==null ){
             mv.addObject("msg","用户名和密码错误,请重新输入!");
             mv.addObject("fg","error");
-            try {
-                try {
-                    req.getRequestDispatcher("/").forward(req,res);
-                } catch (ServletException e) {
-                    e.printStackTrace();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            mv.setViewName("/");
             return mv;
         }
         req.getSession().setAttribute(GlobalVar.UINFO,user);
