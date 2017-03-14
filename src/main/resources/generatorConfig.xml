@@ -35,7 +35,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-        <table tableName="test"
+        <table tableName="clinic_mgr_user"
                delimitIdentifiers="true" delimitAllColumns="true"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"

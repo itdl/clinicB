@@ -12,13 +12,16 @@
 </head>
 <body>
 <div id="loginbox">
-    <form id="loginform" class="form-vertical" action="index.html">
+    <form id="loginform" class="form-vertical">
         <div class="control-group normal_text"><h3><img src="/plugin/bootstrap/img/logo.png" alt="Logo"/></h3></div>
+        <div id="recoverform" class="control-group form-vertical">
+            <p th:text="${msg}" class="normal_text"></p>
+        </div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_lg"><i class="icon-user"></i></span>
-                    <input type="text" placeholder="用户名"/>
+                    <input name="uName" type="text" placeholder="用户名"/>
                 </div>
             </div>
         </div>
@@ -26,34 +29,31 @@
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_ly"><i class="icon-lock"></i></span>
-                    <input type="password" placeholder="密码"/>
+                    <input name="uPwd" type="password" placeholder="密码"/>
                 </div>
             </div>
         </div>
         <div class="form-actions">
             <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">忘记密码?</a></span>
-            <span class="pull-right"><a type="submit" href="/login" class="btn btn-success"> 登录</a></span>
-        </div>
-    </form>
-    <form id="recoverform" action="#" class="form-vertical">
-        <p class="normal_text">请输入正确的用户名密码.</p>
-
-        <div class="controls">
-            <div class="main_input_box">
-                <span class="add-on bg_lo"><i class="icon-envelope"></i></span>
-                <input type="text" placeholder="E-mail address"/>
-            </div>
-        </div>
-
-        <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; 返回登录</a></span>
-            <span class="pull-right"><a class="btn btn-info"></a></span>
+            <span class="pull-right"><a id="login" class="btn btn-success"> 登录</a></span>
         </div>
     </form>
 </div>
 
 <script src="/plugin/bootstrap/js/jquery.min.js"></script>
 <script src="/plugin/bootstrap/js/matrix.login.js"></script>
+<script th:inline="javascript">
+    $(function(){
+        $("#recoverform").css('display',[[${fg}]]=="error"? 'block': 'none');
+        $("#login").on('click',function(){
+            login();
+        })
+    })
+    function login() {
+        $("#loginform").submit();
+        return true;
+    }
+</script>
 </body>
 
 </html>

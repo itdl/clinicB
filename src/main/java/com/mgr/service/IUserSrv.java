@@ -1,5 +1,7 @@
 package com.mgr.service;
 
+import com.mgr.model.UserMdl;
+
 import java.util.Map;
 
 /**
@@ -14,4 +16,5 @@ public interface IUserSrv {
      * @return
      */
     int insert(Map<String, Object> param);
+    UserMdl selByUnamePwd(Map<String,Object> param);
 }
