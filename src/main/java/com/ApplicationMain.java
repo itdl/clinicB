@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.velocity.VelocityAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /*解决logback的SMTPAppender后velocity日志模块报错，不使用velocity*/
 @EnableAutoConfiguration(exclude = {VelocityAutoConfiguration.class})
 @EnableScheduling
+@ServletComponentScan
 public class ApplicationMain {
     /**
      * 启动函数。

@@ -9,11 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,24 +37,21 @@ public class LoginCtl {
     /**
      * 登录跳转到主页
      * @param req
-     * @param mv
      * @return
      */
     @RequestMapping(value="/index",method= RequestMethod.POST )
-    public ModelAndView index(HttpServletRequest req, HttpServletResponse res, ModelAndView mv){
+    public String index(HttpServletRequest req, RedirectAttributes attr){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("userName",req.getParameter("uName"));
         param.put("userPwd",req.getParameter("uPwd"));
         UserMdl user = userSrv.selByUnamePwd(param);
         if( user==null ){
-            mv.addObject("msg","用户名和密码错误,请重新输入!");
-            mv.addObject("fg","error");
-            mv.setViewName("/");
-            return mv;
+            attr.addFlashAttribute("msg","用户名和密码错误,请重新输入!");
+            attr.addFlashAttribute("fg","error");
+            return "redirect:/";
         }
         req.getSession().setAttribute(GlobalVar.UINFO,user);
-        mv.setViewName("index");
-        return mv;
+        return "index";
     }
 
     /**

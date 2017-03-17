@@ -1,10 +1,15 @@
 var Login = (function($){
     var init = function(){
-        $("#recoverform").css('display',[[${fg}]]=="error"? 'block': 'none');
+        $("#recoverform").css('display',fg=="error"? 'block': 'none');
         $("#login").on('click',function(){
             login();
         })
-
+        // document.onkeydown = function (event) {
+        //     var e = event || window.event || arguments.callee.caller.arguments[0];
+        //     if (e && e.keyCode == 13) {
+        //         $("#loginBtn").click();
+        //     }
+        // };
     };
     /**
      * 登录
@@ -20,7 +25,7 @@ var Login = (function($){
      */
     var keyLogin = function(){
         if (event.keyCode==13)
-            $("#loginBtn").click(); //调用登录按钮的登录事件
+            $("#login").click(); //调用登录按钮的登录事件
     }
     return {
         init:init,
