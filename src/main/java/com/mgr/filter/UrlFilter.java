@@ -1,5 +1,6 @@
 package com.mgr.filter;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,6 @@ public class UrlFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("*************过滤器生效**************************");
         // skip non-http requests
         if (!(request instanceof HttpServletRequest)) {
             chain.doFilter(request, response);
