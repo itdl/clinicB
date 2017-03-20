@@ -1,5 +1,6 @@
 package com.mgr.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author mpc
  * @time 2017/03/12
  */
+@Controller
 @RequestMapping("/cmgr")
 public class ClinicMgrCtl {
     /**

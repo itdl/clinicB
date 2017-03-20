@@ -7,6 +7,6 @@ package com.mgr.util;
  */
 public interface GlobalVar {
     String UINFO = "USERINFO";
-    String[] LGNURL = {"/index","/"};
+    String[] LGNURL = {"/main","/"};
     String URLS ="/**";
 }

@@ -16,7 +16,7 @@ var Login = (function($){
      */
     var login = function(){
         var form = $("#loginform")[0];
-        form.action = "/index";
+        form.action = "/main";
         form.method = "post";
         form.submit();
     }

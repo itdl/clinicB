@@ -33,13 +33,21 @@ public class LoginCtl {
     public String login(){
         return "login";
     }
+    /**
+     * 登录页面
+     * @return
+     */
+    @RequestMapping(value="/index",method= RequestMethod.GET )
+    public String index(){
+        return "index";
+    }
 
     /**
      * 登录跳转到主页
      * @param req
      * @return
      */
-    @RequestMapping(value="/index",method= RequestMethod.POST )
+    @RequestMapping(value="/main",method= RequestMethod.POST )
     public String index(HttpServletRequest req, RedirectAttributes attr){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("userName",req.getParameter("uName"));
