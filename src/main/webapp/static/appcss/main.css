@@ -1,3 +1,9 @@
 .form-horizontal .control-group{
     border:none !important;
 }
+.form-horizontal .control-label{
+    width:100px;
+}
+.form-horizontal .control-label-left{
+    width:350px;
+}
