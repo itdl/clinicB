@@ -1,0 +1,14 @@
+﻿第一次课（4月第一周）
+题目：
+1. 搭建自己的mongodb环境（windows、linux不限）
+2. 写个函数
+    输入：企业名称关键字
+    输出：无
+    处理：访问天眼查，将其根据关键字查询到的一览的前20条记录（企业全称、法定代表人、注册时间、注册资本）存到mongodb
+
+题目提示：
+1. mongodb结构自行设计
+2. 框架使用phantomjs
+3. 天眼查demo演示参考：http://www.tianyancha.com/search?key=%E7%99%BE%E5%BA%A6&searchType=company&checkFrom=searchBox
+
+时间：截止到4月9日晚22:00之前，使用QQ或微信或钉钉联系刘磊，远程演示效果
