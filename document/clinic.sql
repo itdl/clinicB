@@ -10,10 +10,40 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-03-28 21:04:59
+Date: 2017-04-16 23:58:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for clinic_client_user
+-- ----------------------------
+DROP TABLE IF EXISTS `clinic_client_user`;
+CREATE TABLE `clinic_client_user` (
+  `user_id` int(20) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `user_sex` int(1) DEFAULT NULL,
+  `user_idtype` int(3) DEFAULT NULL,
+  `user_isshefn` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `user_birthday` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `user_password` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `user_jzd` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `user_sms` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of clinic_client_user
+-- ----------------------------
+INSERT INTO `clinic_client_user` VALUES ('1', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
+INSERT INTO `clinic_client_user` VALUES ('2', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
+INSERT INTO `clinic_client_user` VALUES ('3', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
+INSERT INTO `clinic_client_user` VALUES ('4', 'songshijun', '0', '1', '1212121212', '2017-04-11 00:00:00', '121212', '12121212121分为非法11', '1212121212');
+INSERT INTO `clinic_client_user` VALUES ('5', 'songshijun', '0', '1', '1212121212', '2016-03-10 00:00:00', '121212', '12121212121分为非法11', '1212121212');
+INSERT INTO `clinic_client_user` VALUES ('6', 'songshijun', '0', '1', '1212121212', '2016-03-09 00:00:00', '1212121211', '12121212121分为非法11', '12121212');
+INSERT INTO `clinic_client_user` VALUES ('7', 'fsfa', '0', '1', '3123131', '2017-04-06 00:00:00', '32131', '313213', '21321313');
+INSERT INTO `clinic_client_user` VALUES ('8', '法撒旦法', '0', '1', '123', '2017-04-08 00:00:00', '123', '3123123', '312312312');
+INSERT INTO `clinic_client_user` VALUES ('9', '测试账号', '0', '1', '1234', '2017-04-12 00:00:00', '123', '12432411313', '123123123');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_drug
@@ -80,4 +110,26 @@ CREATE TABLE `clinic_mgr_user` (
 -- Records of clinic_mgr_user
 -- ----------------------------
 INSERT INTO `clinic_mgr_user` VALUES ('1', 'admin', '123', '2017-03-13 11:01:30');
+
+-- ----------------------------
+-- Table structure for clinic_mgr_yyconfig
+-- ----------------------------
+DROP TABLE IF EXISTS `clinic_mgr_yyconfig`;
+CREATE TABLE `clinic_mgr_yyconfig` (
+  `register_date` date NOT NULL,
+  `register_time` varchar(5) COLLATE utf8_bin NOT NULL,
+  `register_used` int(1) NOT NULL,
+  PRIMARY KEY (`register_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of clinic_mgr_yyconfig
+-- ----------------------------
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-16', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-17', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-18', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22', '1,2,3', '1');
 SET FOREIGN_KEY_CHECKS=1;
