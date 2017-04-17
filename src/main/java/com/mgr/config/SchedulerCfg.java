@@ -25,7 +25,7 @@ public class SchedulerCfg {
     /**
      * 预约日期范围定时生成器
      */
-    @Scheduled(cron="0 0 0 * * ? *")
+    @Scheduled(cron="0 0 0 * * *")
     private void SchedulerInit(){
         Map<String,Object> param = new HashMap<String,Object>();
         String date = DateUtil.AddDate(Calendar.WEEK_OF_YEAR,1);

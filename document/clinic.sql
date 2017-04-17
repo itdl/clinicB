@@ -1,19 +1,41 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : cllinic
-Source Server Version : 50610
+Source Server         : local_root
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : clinic
 
 Target Server Type    : MYSQL
-Target Server Version : 50610
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-04-16 23:58:58
+Date: 2017-04-17 00:51:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for clinic_client_register
+-- ----------------------------
+DROP TABLE IF EXISTS `clinic_client_register`;
+CREATE TABLE `clinic_client_register` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `register_date` date DEFAULT NULL,
+  `register_time` varchar(5) COLLATE utf8_bin DEFAULT NULL,
+  `rpt_type` int(1) DEFAULT NULL COMMENT '接诊类型（1:初诊 1:复诊）',
+  `work_info` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `work_addr` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `rpt_flg` int(1) DEFAULT NULL COMMENT '是否接诊(0:预约 1:接诊 2:取消）',
+  `stood_time` int(3) DEFAULT NULL COMMENT '爽约次数',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='预约信息表';
+
+-- ----------------------------
+-- Records of clinic_client_register
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for clinic_client_user
@@ -132,4 +154,3 @@ INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22', '1,2,3', '1');
-SET FOREIGN_KEY_CHECKS=1;
