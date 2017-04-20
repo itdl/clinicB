@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local_root
-Source Server Version : 50717
+Source Server         : cllinic
+Source Server Version : 50610
 Source Host           : localhost:3306
 Source Database       : clinic
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-04-17 00:51:51
+Date: 2017-04-20 13:53:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,14 +28,26 @@ CREATE TABLE `clinic_client_register` (
   `work_info` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `work_addr` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `rpt_flg` int(1) DEFAULT NULL COMMENT '是否接诊(0:预约 1:接诊 2:取消）',
-  `stood_time` int(3) DEFAULT NULL COMMENT '爽约次数',
+  `rpt_flg` int(1) DEFAULT NULL COMMENT '是否接诊(0:预约 1:接诊 2:取消 3:爽约）',
+  `stood` int(1) DEFAULT NULL COMMENT '是否爽约',
+  `is_cancel` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='预约信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='预约信息表';
 
 -- ----------------------------
 -- Records of clinic_client_register
 -- ----------------------------
+INSERT INTO `clinic_client_register` VALUES ('1', '1', '2017-04-16', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('2', '1', '2017-04-16', '2', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('3', '1', '2017-04-16', '2', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('4', '1', '2017-04-16', '3', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('5', '1', '2017-04-16', '2', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('6', '1', '2017-04-16', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('7', '1', '2017-04-16', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('8', '1', '2017-04-17', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('9', '1', '2017-04-17', '3', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('10', '1', '2017-04-17', '2', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('11', '1', '2017-04-17', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for clinic_client_user
@@ -52,20 +64,15 @@ CREATE TABLE `clinic_client_user` (
   `user_jzd` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `user_sms` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_client_user
 -- ----------------------------
-INSERT INTO `clinic_client_user` VALUES ('1', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
-INSERT INTO `clinic_client_user` VALUES ('2', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
-INSERT INTO `clinic_client_user` VALUES ('3', '', '0', '-1', '', '2017-04-11 00:00:00', '', '', '');
-INSERT INTO `clinic_client_user` VALUES ('4', 'songshijun', '0', '1', '1212121212', '2017-04-11 00:00:00', '121212', '12121212121分为非法11', '1212121212');
-INSERT INTO `clinic_client_user` VALUES ('5', 'songshijun', '0', '1', '1212121212', '2016-03-10 00:00:00', '121212', '12121212121分为非法11', '1212121212');
-INSERT INTO `clinic_client_user` VALUES ('6', 'songshijun', '0', '1', '1212121212', '2016-03-09 00:00:00', '1212121211', '12121212121分为非法11', '12121212');
-INSERT INTO `clinic_client_user` VALUES ('7', 'fsfa', '0', '1', '3123131', '2017-04-06 00:00:00', '32131', '313213', '21321313');
-INSERT INTO `clinic_client_user` VALUES ('8', '法撒旦法', '0', '1', '123', '2017-04-08 00:00:00', '123', '3123123', '312312312');
-INSERT INTO `clinic_client_user` VALUES ('9', '测试账号', '0', '1', '1234', '2017-04-12 00:00:00', '123', '12432411313', '123123123');
+INSERT INTO `clinic_client_user` VALUES ('1', 'songshijun', '0', '1', '1212121212', '2017-04-19 10:44:56', '123456', '辽宁大连黑石礁街', '18642826976');
+INSERT INTO `clinic_client_user` VALUES ('2', 'fsfa', '0', '1', '3123131', '2017-04-19 10:44:58', '32131', '313213', '21321313');
+INSERT INTO `clinic_client_user` VALUES ('3', '法撒旦法', '0', '1', '123', '2017-04-19 10:45:02', '123', '3123123', '312312312');
+INSERT INTO `clinic_client_user` VALUES ('4', '测试账号', '0', '1', '1234', '2017-04-19 10:45:08', '123', '12432411313', '123123123');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_drug
@@ -138,19 +145,20 @@ INSERT INTO `clinic_mgr_user` VALUES ('1', 'admin', '123', '2017-03-13 11:01:30'
 -- ----------------------------
 DROP TABLE IF EXISTS `clinic_mgr_yyconfig`;
 CREATE TABLE `clinic_mgr_yyconfig` (
-  `register_date` date NOT NULL,
-  `register_time` varchar(5) COLLATE utf8_bin NOT NULL,
-  `register_used` int(1) NOT NULL,
+  `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '预约时间',
+  `register_time` varchar(5) COLLATE utf8_bin NOT NULL COMMENT '预约时间1:上午 2:下午 3:晚上',
+  `register_used` int(1) NOT NULL COMMENT '停诊信息1:正常接诊 0:停诊',
   PRIMARY KEY (`register_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_mgr_yyconfig
 -- ----------------------------
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-16', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-17', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-18', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-16 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-17 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-18 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22 00:00:00', '1,2,3', '1');
+SET FOREIGN_KEY_CHECKS=1;
