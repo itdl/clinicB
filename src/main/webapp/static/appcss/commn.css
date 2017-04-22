@@ -1,0 +1,15 @@
+#loginbox .normal_text{
+    padding: 10px 0 0 0 !important;
+}
+.form-actions{
+    margin-top: 0 !important;
+}
+#loginbox .control-group{
+    padding: 0 0 20px 0 !important;
+}
+#loginbox form#loginform{
+    margin-top: 100px !important;
+}
+p{
+    margin: 5px 0 5px 0;
+}
