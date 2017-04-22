@@ -1,0 +1,19 @@
+select{
+    width: 100%;
+    background-color: #f3f3f3;
+    border:1px solid #cdcaca;
+}
+select, input[type="file"]{
+    style: none !important;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
+}
+.table th, .table td{
+    padding: 3px !important;
+    vertical-align: middle;
+}
+.table th{
+    font-size: 12px !important;
+}

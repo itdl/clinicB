@@ -27,16 +27,5 @@ public class SchedulerCfg {
      */
     @Scheduled(cron="0 0 0 * * *")
     private void SchedulerInit(){
-        Map<String,Object> param = new HashMap<String,Object>();
-        String date = DateUtil.AddDate(Calendar.WEEK_OF_YEAR,1);
-        param.put("registerDate",date.substring(0,10));
-        param.put("registerTime","1,2,3");
-        param.put("registerUsed",0);
-        try{
-            yyconfigSrv.insertDate(param);
-            logger.info("插入的日期为->[ "+ param.get("registerDate") +" ]");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
     }
 }

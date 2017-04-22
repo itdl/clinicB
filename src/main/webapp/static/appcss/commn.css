@@ -13,3 +13,24 @@
 p{
     margin: 5px 0 5px 0;
 }
+.table th, .table td{
+    text-align: center !important;
+}
+.swal2-modal{
+    top: 70% !important;
+}
+.swal2-modal hr{
+    height: 3px !important;
+}
+.swal2-modal button.styled{
+    font-size: 13px !important;
+    padding: 2px 15px !important;
+}
+.swal2-content{
+    font-size: 15px !important;
+}
+.swal2-modal .swal2-close{
+    font-size:6px !important;
+    line-height: 17px !important;
+    color: #808080 !important;
+}
