@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : cllinic
-Source Server Version : 50610
+Source Server         : local_root
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : clinic
 
 Target Server Type    : MYSQL
-Target Server Version : 50610
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-04-20 13:53:36
+Date: 2017-04-25 01:07:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `clinic_client_register` (
   `stood` int(1) DEFAULT NULL COMMENT '是否爽约',
   `is_cancel` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='预约信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='预约信息表';
 
 -- ----------------------------
 -- Records of clinic_client_register
@@ -48,6 +48,10 @@ INSERT INTO `clinic_client_register` VALUES ('8', '1', '2017-04-17', '1', '1', '
 INSERT INTO `clinic_client_register` VALUES ('9', '1', '2017-04-17', '3', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
 INSERT INTO `clinic_client_register` VALUES ('10', '1', '2017-04-17', '2', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
 INSERT INTO `clinic_client_register` VALUES ('11', '1', '2017-04-17', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('12', '1', '2017-04-22', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('13', '1', '2017-04-22', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('14', '1', '2017-04-22', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
+INSERT INTO `clinic_client_register` VALUES ('15', '1', '2017-04-22', '1', '1', '软件工程师', '高新园区', '发烧，流鼻涕', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for clinic_client_user
@@ -94,6 +98,8 @@ CREATE TABLE `clinic_mgr_drug` (
   `uses` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '用途',
   `dosage` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '用量',
   `remark` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
+  `create_date` timestamp NULL DEFAULT NULL,
+  `update_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`type`,`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='药品表';
 
@@ -161,4 +167,4 @@ INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19 00:00:00', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20 00:00:00', '1,2,3', '0');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21 00:00:00', '1,2,3', '0');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22 00:00:00', '1,2,3', '1');
-SET FOREIGN_KEY_CHECKS=1;
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-27 00:00:00', '1,2,3', '0');
