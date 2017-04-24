@@ -1,5 +1,12 @@
 var OpToday = (function($){
     /**
+     * 初始化信息
+     */
+    var init = function(){
+        if( _msg != null )
+            Global.msg(_msg);
+    }
+    /**
      * 提交操作
      */
     var save = function(obj){
@@ -8,6 +15,10 @@ var OpToday = (function($){
         },'json');
     }
     return{
-        save:save
+        save:save,
+        init:init
     }
 })(jQuery)
+$(function(){
+    OpToday.init();
+})

@@ -1,48 +1,61 @@
-var DrugAdd = (function($){
-    var init = function(){
+var DrugAdd = (function ($) {
+    var init = function () {
         var node = $("#drug input");
         Global.validNull(node);
     }
 
-    var submit = function(){
+    var addDrug = function () {
         var param = {};
         var node = null;
-        if(Gvali.notBlankValue(node = $("#code")))
-            param.code = node.val();
-        if(Gvali.notBlankValue(node = $("#name")))
-            param.name = node.val();
-        if(Gvali.notBlankValue(node = $("#type")))
-            param.type = node.val();
-        if(Gvali.notBlankValue(node = $("#attention")))
-            param.attention = node.val();
-        if(Gvali.notBlankValue(node = $("#format")))
-            param.format = node.val();
-        if(Gvali.notBlankValue(node = $("#prd_date")))
-            param.prd_date = node.val();
-        if(Gvali.notBlankValue(node = $("#valid_date")))
-            param.valid_date = node.val();
-        if(Gvali.notBlankValue(node = $("#shape")))
-            param.shape = node.val();
-        if(Gvali.notBlankValue(node = $("#counts")))
-            param.counts = node.val();
-        if(Gvali.notBlankValue(node = $("#prd_phone")))
-            param.prd_phone = node.val();
-        if(Gvali.notBlankValue(node = $("#prd_firm")))
-            param.prd_firm = node.val();
-        if(Gvali.notBlankValue(node = $("#uses")))
-            param.uses = node.val();
-        if(Gvali.notBlankValue(node = $("#dosage")))
-            param.dosage = node.val();
+        if (!Gvali.notBlankValue(node = $("#code")))
+            return;
+        param.code = node.val();
+        if (!Gvali.notBlankValue(node = $("#name")))
+            return;
+        param.name = node.val();
+        if (!Gvali.notBlankValue(node = $("#type")))
+            return;
+        param.type = node.val();
+        if (!Gvali.notBlankValue(node = $("#attention")))
+            return;
+        param.attention = node.val();
+        if (!Gvali.notBlankValue(node = $("#format")))
+            return;
+        param.format = node.val();
+        if (!Gvali.notBlankValue(node = $("#prd_date")))
+            return;
+        param.prd_date = node.val();
+        if (!Gvali.notBlankValue(node = $("#valid_date")))
+            return;
+        param.valid_date = node.val();
+        if (!Gvali.notBlankValue(node = $("#shape")))
+            return;
+        param.shape = node.val();
+        if (!Gvali.notBlankValue(node = $("#counts")))
+            return;
+        param.counts = node.val();
+        if (!Gvali.notBlankValue(node = $("#prd_phone")))
+            return;
+        param.prd_phone = node.val();
+        if (!Gvali.notBlankValue(node = $("#prd_firm")))
+            return;
+        param.prd_firm = node.val();
+        if (!Gvali.notBlankValue(node = $("#uses")))
+            return;
+        param.uses = node.val();
+        if (!Gvali.notBlankValue(node = $("#dosage")))
+            return;
+        param.dosage = node.val();
         var form = $("#drug")[0];
-        form.action="/drug/add";
-        form.method="post";
+        form.action = "/drug/add";
+        form.method = "post";
         form.submit();
     }
-    return{
-        init:init,
-        submit:submit
+    return {
+        init: init,
+        addDrug: addDrug
     }
 })(jQuery)
-$(function(){
+$(function () {
     DrugAdd.init();
 })

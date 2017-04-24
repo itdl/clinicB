@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="yy : ${yys}" class="odd gradeX">
+                                <tr th:if="yys != null" th:each="yy : ${yys}" class="odd gradeX">
                                     <td class="center" th:text="${yy.userName}"/>
                                     <td class="center" th:text="${yy.userSms}"/>
                                     <td class="center" th:text="${yy.remarks}"/>
@@ -75,6 +75,7 @@
 <!--footer-->
 <div th:replace="commn/toolbar :: footer"></div>
 <div th:replace="commn/js :: js"></div>
+<script th:inline="javascript"> var _msg=[[${msg}]];</script>
 <script th:src="@{/static/appjs/op-today.js}"/>
 </body>
 </html>

@@ -37,7 +37,7 @@ public class OpCtl {
         param.put("rptFlg",0);
         param.put("registerDate", DateUtil.FormatDate(new Date(),"yyyy-MM-dd"));
         List<YyRegisterMdl> yys = yySrv.selTodayYyList(param);
-        if(yys!=null){
+        if(yys.size()!=0){
             model.addObject("yys",yys);
         }else{
             model.addObject("msg","今天无患者预约信息");

@@ -143,12 +143,11 @@ var Gvali = (function($){
     //验证值是否为空或空格.
     var notBlankValue = function(node) {
         var value = $.trim(node.val());
-        var isok = true;
         if(typeof(value) == "undefined"||!value){
             node.focus();
-            isok = false;
+            return false;
         }
-        return isok ;
+        return true ;
     };
     //是否任意一种证件号,逐一判断各类证件
     var isSpecifyId = function(idType, idNo){
