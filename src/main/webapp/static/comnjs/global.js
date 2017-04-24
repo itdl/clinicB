@@ -1,4 +1,10 @@
 var Global = (function ($) {
+    var validNull = function(node){
+        node.on("blur",function(){
+            if(this.value.trim()=='')
+                $("#"+this.id).focus();
+        });
+    }
     /**
      * 消息提示
      * @param msg
@@ -27,6 +33,7 @@ var Global = (function ($) {
     }
     return {
         exit:exit,
-        msg:msg
+        msg:msg,
+        validNull:validNull
     }
 })(jQuery)
