@@ -2,52 +2,45 @@ var DrugAdd = (function ($) {
     var init = function () {
         var node = $("#drug input");
         Global.validNull(node);
+        if(_res==null)
+            return;
+        Global.msg(_msg);
+        if(_res=='T'){
+            window.setTimeout('window.location.href="/drug/check"',2000);
+            return;
+        }
     }
 
     var addDrug = function () {
-        var param = {};
-        var node = null;
-        if (!Gvali.notBlankValue(node = $("#code")))
+        if (!Gvali.notBlankValue($("#code").val())){
             return;
-        param.code = node.val();
-        if (!Gvali.notBlankValue(node = $("#name")))
+        }
+        if (!Gvali.notBlankValue($("#name"))){
             return;
-        param.name = node.val();
-        if (!Gvali.notBlankValue(node = $("#type")))
+        }
+        if (!Gvali.notBlankValue($("#type"))){
             return;
-        param.type = node.val();
-        if (!Gvali.notBlankValue(node = $("#attention")))
+        }
+        if (!Gvali.notBlankValue($("#attention"))){
             return;
-        param.attention = node.val();
-        if (!Gvali.notBlankValue(node = $("#format")))
-            return;
-        param.format = node.val();
-        if (!Gvali.notBlankValue(node = $("#prd_date")))
-            return;
-        param.prd_date = node.val();
-        if (!Gvali.notBlankValue(node = $("#valid_date")))
-            return;
-        param.valid_date = node.val();
-        if (!Gvali.notBlankValue(node = $("#shape")))
-            return;
-        param.shape = node.val();
-        if (!Gvali.notBlankValue(node = $("#counts")))
-            return;
-        param.counts = node.val();
-        if (!Gvali.notBlankValue(node = $("#prd_phone")))
-            return;
-        param.prd_phone = node.val();
-        if (!Gvali.notBlankValue(node = $("#prd_firm")))
-            return;
-        param.prd_firm = node.val();
-        if (!Gvali.notBlankValue(node = $("#uses")))
-            return;
-        param.uses = node.val();
-        if (!Gvali.notBlankValue(node = $("#dosage")))
-            return;
-        param.dosage = node.val();
+        }
+        if (!Gvali.notBlankValue($("#format"))){
+            Global.msg("药品规格不能为空");
+        }
+        if (!Gvali.notBlankValue($("#prd_date"))){
+            Global.msg("药品生产日期不能为空");
+        }
+        if (!Gvali.notBlankValue($("#valid_date"))){
+            Global.msg("药品有效日期不能为空");
+        }
+        if (!Gvali.notBlankValue($("#shape"))){
+            Global.msg("药品性状不能为空");
+        }
+        if (!Gvali.notBlankValue($("#counts"))){
+            Global.msg("药品数量不能为空");
+        }
         var form = $("#drug")[0];
-        form.action = "/drug/add";
+        form.action = "/drug/addDrug";
         form.method = "post";
         form.submit();
     }

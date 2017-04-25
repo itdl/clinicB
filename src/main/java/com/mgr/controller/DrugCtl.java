@@ -35,8 +35,8 @@ public class DrugCtl {
         return "drug/drug-"+html;
     }
 
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
-    public String drugAdd(HttpServletRequest req, ModelAndView model){
+    @RequestMapping(value = "/addDrug",method = RequestMethod.POST)
+    public ModelAndView drugAdd(HttpServletRequest req, ModelAndView model){
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("code",req.getParameter("code"));
         param.put("name",req.getParameter("name"));
@@ -52,11 +52,16 @@ public class DrugCtl {
         param.put("uses",req.getParameter("uses"));
         param.put("dosage",req.getParameter("dosage"));
         param.put("create_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
+        model.setViewName("drug/drug-add");
         try{
             drugMapper.addDrug(param);
+            model.addObject("msg","添加成功");
+            model.addObject("result","T");
         }catch(Exception e){
             e.printStackTrace();
+            model.addObject("msg","网络开小差了");
+            model.addObject("result","F");
         }
-        return null;
+        return model;
     }
 }

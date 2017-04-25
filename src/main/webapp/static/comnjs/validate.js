@@ -141,10 +141,9 @@ var Gvali = (function($){
         return a;
     };
     //验证值是否为空或空格.
-    var notBlankValue = function(node) {
-        var value = $.trim(node.val());
+    var notBlankValue = function(val) {
+        var value = $.trim(val);
         if(typeof(value) == "undefined"||!value){
-            node.focus();
             return false;
         }
         return true ;

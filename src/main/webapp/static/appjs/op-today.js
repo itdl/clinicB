@@ -3,8 +3,10 @@ var OpToday = (function($){
      * 初始化信息
      */
     var init = function(){
-        if( _msg != null )
+        if( _msg != null ){
             Global.msg(_msg);
+            return;
+        }
     }
     /**
      * 提交操作

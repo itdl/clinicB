@@ -17,8 +17,6 @@ var Global = (function ($) {
             showConfirmButton: isConfirm==null?false:true,
             showCloseButton: close==null?true:close,
             showCancelButton:cancel==null?false:cancel
-        },function(){
-            return ;
         });
     }
     //退出
