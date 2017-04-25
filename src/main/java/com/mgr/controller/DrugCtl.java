@@ -56,11 +56,11 @@ public class DrugCtl {
         try{
             drugMapper.addDrug(param);
             model.addObject("msg","添加成功");
-            model.addObject("result","T");
+            model.addObject("flag","T");
         }catch(Exception e){
             e.printStackTrace();
-            model.addObject("msg","网络开小差了");
-            model.addObject("result","F");
+            model.addObject("msg","网络开小差了亲");
+            model.addObject("flag","F");
         }
         return model;
     }

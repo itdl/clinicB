@@ -7,38 +7,30 @@ var DrugAdd = (function ($) {
         Global.msg(_msg);
         if(_res=='T'){
             window.setTimeout('window.location.href="/drug/check"',2000);
+            alert(0)
             return;
         }
     }
 
     var addDrug = function () {
-        if (!Gvali.notBlankValue($("#code").val())){
+        if (!Gvali.notBlankValue($("#code").val()))
             return;
-        }
-        if (!Gvali.notBlankValue($("#name"))){
+        if (!Gvali.notBlankValue($("#name").val()))
             return;
-        }
-        if (!Gvali.notBlankValue($("#type"))){
+        if (!Gvali.notBlankValue($("#type").val()))
             return;
-        }
-        if (!Gvali.notBlankValue($("#attention"))){
+        if (!Gvali.notBlankValue($("#attention").val()))
             return;
-        }
-        if (!Gvali.notBlankValue($("#format"))){
-            Global.msg("药品规格不能为空");
-        }
-        if (!Gvali.notBlankValue($("#prd_date"))){
-            Global.msg("药品生产日期不能为空");
-        }
-        if (!Gvali.notBlankValue($("#valid_date"))){
-            Global.msg("药品有效日期不能为空");
-        }
-        if (!Gvali.notBlankValue($("#shape"))){
-            Global.msg("药品性状不能为空");
-        }
-        if (!Gvali.notBlankValue($("#counts"))){
-            Global.msg("药品数量不能为空");
-        }
+        if (!Gvali.notBlankValue($("#format").val()))
+            return;
+        if (!Gvali.notBlankValue($("#prd_date").val()))
+            return;
+        if (!Gvali.notBlankValue($("#valid_date").val()))
+            return;
+        if (!Gvali.notBlankValue($("#shape").val()))
+            return;
+        if (!Gvali.notBlankValue($("#counts").val()))
+            return;
         var form = $("#drug")[0];
         form.action = "/drug/addDrug";
         form.method = "post";

@@ -14,7 +14,7 @@
     <insert id="addDrug" parameterType="java.util.Map">
         INSERT INTO clinic_mgr_drug (code, name, type,attention,price,format,prd_date,valid_date,
         shape,counts,prd_phone,prd_firm,uses,dosage,remark,create_date)
-        VALUES (#{code},#{name}},#{type},#{attention},#{price},#{format},#{prd_date},#{valid_date},#{shape}
+        VALUES (#{code},#{name},#{type},#{attention},#{price},#{format},#{prd_date},#{valid_date},#{shape}
         ,#{counts},#{prd_phone},#{prd_firm},#{uses},#{dosage},#{remark},#{create_date})
     </insert>
 </mapper>
