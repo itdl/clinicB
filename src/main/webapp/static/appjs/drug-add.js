@@ -7,7 +7,6 @@ var DrugAdd = (function ($) {
         Global.msg(_msg);
         if(_res=='T'){
             window.setTimeout('window.location.href="/drug/check"',2000);
-            alert(0)
             return;
         }
     }
