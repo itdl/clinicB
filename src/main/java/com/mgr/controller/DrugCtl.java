@@ -1,6 +1,8 @@
 package com.mgr.controller;
 
 import com.mgr.dao.DrugMapper;
+import com.mgr.model.DrugMdl;
+import com.mgr.service.DrugSrv;
 import com.mgr.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,7 +26,7 @@ import java.util.Map;
 @RequestMapping("/drug")
 public class DrugCtl {
     @Resource
-    private DrugMapper drugMapper;
+    private DrugSrv drugSrv;
 
     /**
      * 页面跳转
@@ -51,15 +54,55 @@ public class DrugCtl {
         param.put("prd_firm",req.getParameter("prd_firm"));
         param.put("uses",req.getParameter("uses"));
         param.put("dosage",req.getParameter("dosage"));
+        param.put("remark",req.getParameter("remark"));
         param.put("create_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
+        param.put("update_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
         model.setViewName("drug/drug-add");
         try{
-            drugMapper.addDrug(param);
+            drugSrv.addDrug(param);
             model.addObject("msg","添加成功");
             model.addObject("flag","T");
         }catch(Exception e){
             e.printStackTrace();
             model.addObject("msg","网络开小差了亲");
+            model.addObject("flag","F");
+        }
+        return model;
+    }
+
+    @RequestMapping(value="/check",method=RequestMethod.GET)
+    public ModelAndView drugCheck(ModelAndView model){
+        Map<String,Object> param = new HashMap<String,Object>();
+        try{
+            List<DrugMdl> drugs = drugSrv.selDrug(new HashMap<String,Object>());
+            model.addObject("drugs",drugs);
+        }catch(Exception e){
+            e.printStackTrace();
+            model.addObject("msg","未添加药品信息!");
+            model.addObject("flag","F");
+        }
+        model.setViewName("drug/drug-check");
+        return model;
+    }
+
+    @RequestMapping(value="/details",method=RequestMethod.POST)
+    public ModelAndView drugSearch(ModelAndView model,HttpServletRequest req){
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("code",req.getParameter("code"));
+        try{
+            List<DrugMdl> drugs = drugSrv.selDrug(param);
+            if(drugs.size()==0){
+                model.setViewName("drug/drug-check");
+                model.addObject("msg","未查到相关药品信息");
+                model.addObject("flag","F");
+                return model;
+            }
+            model.setViewName("drug/drug-details");
+            model.addObject("drug",drugs.get(0));
+        }catch(Exception e){
+            e.printStackTrace();
+            model.setViewName("drug/drug-check");
+            model.addObject("msg","网络异常了亲~");
             model.addObject("flag","F");
         }
         return model;

@@ -1,5 +1,7 @@
 var DrugAdd = (function ($) {
     var init = function () {
+        var cla = $("#ypgl").attr("class");
+        $("#ypgl").attr("class",cla==null?"active":"active "+cla);
         var node = $("#drug input");
         Global.validNull(node);
         if(_res==null)

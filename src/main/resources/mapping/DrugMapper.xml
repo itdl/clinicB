@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mgr.dao.DrugMapper" >
-    <select id="selDrug" parameterType="java.util.Map">
+    <resultMap id="drug" type="com.mgr.model.DrugMdl">
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
+        <result column="type" property="type"/>
+        <result column="attention" property="attention"/>
+        <result column="price" property="price"/>
+        <result column="format" property="format"/>
+        <result column="prd_date" property="prd_date"/>
+        <result column="valid_date" property="valid_date"/>
+        <result column="counts" property="counts"/>
+        <result column="prd_phone" property="prd_phone"/>
+        <result column="prd_firm" property="prd_firm"/>
+        <result column="uses" property="uses"/>
+        <result column="dosage" property="dosage"/>
+        <result column="remark" property="remark"/>
+        <result column="shape" property="shape"/>
+    </resultMap>
+    <select id="selDrug" parameterType="java.util.Map" resultMap="drug">
         SELECT code, name, type,attention,price,format,prd_date
         ,valid_date,shape,counts,prd_phone,prd_firm,uses,dosage,remark
         FROM clinic_mgr_drug
@@ -17,4 +34,5 @@
         VALUES (#{code},#{name},#{type},#{attention},#{price},#{format},#{prd_date},#{valid_date},#{shape}
         ,#{counts},#{prd_phone},#{prd_firm},#{uses},#{dosage},#{remark},#{create_date})
     </insert>
+
 </mapper>

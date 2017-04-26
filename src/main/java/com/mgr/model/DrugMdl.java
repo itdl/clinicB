@@ -19,6 +19,7 @@ public class DrugMdl {
     private String dosage;
     private String create_date;
     private String update_date;
+    private String remark;
 
     public String getCode() {
         return code;
@@ -138,5 +139,13 @@ public class DrugMdl {
 
     public void setUpdate_date(String update_date) {
         this.update_date = update_date;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

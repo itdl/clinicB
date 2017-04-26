@@ -3,6 +3,8 @@ var OpToday = (function($){
      * 初始化信息
      */
     var init = function(){
+        var cla = $("#jrmz").attr("class");
+        $("#jrmz").attr("class",cla==null?"active":"active "+cla);
         if( _msg != null ){
             Global.msg(_msg);
             return;
