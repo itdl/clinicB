@@ -20,6 +20,7 @@ public class DrugMdl {
     private String create_date;
     private String update_date;
     private String remark;
+    private String price;
 
     public String getCode() {
         return code;
@@ -147,5 +148,13 @@ public class DrugMdl {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

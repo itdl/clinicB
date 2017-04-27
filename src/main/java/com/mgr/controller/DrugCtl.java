@@ -57,6 +57,7 @@ public class DrugCtl {
         param.put("remark",req.getParameter("remark"));
         param.put("create_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
         param.put("update_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
+        param.put("price", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
         model.setViewName("drug/drug-add");
         try{
             drugSrv.addDrug(param);
