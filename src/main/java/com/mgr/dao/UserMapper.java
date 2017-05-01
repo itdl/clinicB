@@ -2,10 +2,11 @@ package com.mgr.dao;
 
 import com.mgr.model.UserMdl;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userId);
+    int delAdmin(Map<String,Object> param);
 
     int insert(UserMdl record);
 
@@ -13,7 +14,7 @@ public interface UserMapper {
 
     UserMdl selByUnamePwd(Map<String,Object> param);
 
-    int updateByPrimaryKeySelective(UserMdl record);
-
     int updateByPrimaryKey(UserMdl record);
+
+    List<UserMdl> selectList();
 }

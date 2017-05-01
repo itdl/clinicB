@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,12 +21,22 @@ public class UserSrvImpl implements IUserSrv {
     private UserMapper userMapper;
 
     @Override
-    public int insert(Map<String, Object> param) {
-        return 0;
+    public int insert(UserMdl user) {
+        return userMapper.insert(user);
     }
 
     @Override
     public UserMdl selByUnamePwd(Map<String, Object> param) {
         return userMapper.selByUnamePwd(param);
+    }
+
+    @Override
+    public List<UserMdl> selectList() {
+        return userMapper.selectList();
+    }
+
+    @Override
+    public int delAdmin(Map<String, Object> param) {
+        return userMapper.delAdmin(param);
     }
 }

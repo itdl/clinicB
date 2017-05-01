@@ -9,23 +9,12 @@
                 <li><a href="/drug/check">药品盘点</a></li>
             </ul>
         </li>
-        <!-- oss: <operating statistics>缩写 -->
-        <li id="jytj"><a href="/oss"><i class="icon icon-fullscreen"></i><span>经营统计</span></a></li>
         <li id="zsgl" class="submenu"><a href="javascript:;"><i class="icon icon-th-list"></i><span>诊所管理</span></a>
             <ul>
                 <!--mgrcfg: manager configure 缩写-->
-                <li><a href="/cmgr/mgrcfg">管理员配置</a></li>
+                <li th:if="${session.isAdm == true}"><a href="/cmgr/admins">管理员配置</a></li>
                 <li><a href="/cmgr/staff">诊所员工配置</a></li>
                 <li><a href="/cmgr/info">诊所信息配置</a></li>
-            </ul>
-        </li>
-        <li id="hzgl" class="submenu"><a href="javascript:;"><i class="icon icon-file"></i><span>患者管理</span></a>
-            <ul>
-                <li><a href="emr/index2.html">首页</a></li>
-                <li><a href="emr/gallery.html">相册</a></li>
-                <li><a href="emr/calendar.html">日历</a></li>
-                <li><a href="emr/invoice.html">清单</a></li>
-                <li><a href="emr/chat.html">聊天</a></li>
             </ul>
         </li>
     </ul>

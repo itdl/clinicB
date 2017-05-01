@@ -1,7 +1,5 @@
 package com.mgr.model;
 
-import java.util.Date;
-
 public class UserMdl {
     private Integer userId;
 
@@ -9,7 +7,11 @@ public class UserMdl {
 
     private String userPwd;
 
-    private Date createDate;
+    private String createDate;
+
+    private Integer userRole;
+
+    private String roleName;
 
     public Integer getUserId() {
         return userId;
@@ -35,11 +37,27 @@ public class UserMdl {
         this.userPwd = userPwd;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(Integer userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

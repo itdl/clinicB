@@ -2,6 +2,7 @@ package com.mgr.service;
 
 import com.mgr.model.UserMdl;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +16,8 @@ public interface IUserSrv {
      * @param param
      * @return
      */
-    int insert(Map<String, Object> param);
+    int insert(UserMdl user);
     UserMdl selByUnamePwd(Map<String,Object> param);
+    List<UserMdl> selectList();
+    int delAdmin(Map<String,Object> param);
 }

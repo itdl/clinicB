@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mgr.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.mgr.model.UserMdl" >
-    <id column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
-    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <id column="user_id" property="userId"/>
+    <result column="user_name" property="userName"/>
+    <result column="user_pwd" property="userPwd"/>
+    <result column="create_date" property="createDate"/>
+    <result column="user_role" property="userRole"/>
+    <result column="name" property="roleName"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    user_id, user_name, user_pwd, create_date
+    user_id, user_name, user_pwd, create_date,user_role,name
   </sql>
+
   <!-- 验证用户登录 -->
   <select id="selByUnamePwd" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
-    from clinic_mgr_user
+    from clinic_mgr_user a,clinic_mgr_role b
     where
-    user_name = #{userName} and user_pwd = #{userPwd}
+    user_name = #{userName} and user_pwd = #{userPwd} and a.user_role = b.id
   </select>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from "clinic_mgr_user"
-    where "user_id" = #{userId,jdbcType=INTEGER}
-  </delete>
+  <!-- 查询管理员列表 -->
+  <select id ="selectList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from clinic_mgr_user a,clinic_mgr_role b
+    where a.user_role = b.id
+    order by user_id
+  </select>
+
+  <!-- 新增管理员 -->
   <insert id="insert" parameterType="com.mgr.model.UserMdl" >
-    insert into "clinic_mgr_user" ("user_id", "user_name", "user_pwd", 
-      "create_date")
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
-      #{createDate,jdbcType=TIMESTAMP})
+    insert into "clinic_mgr_user"
+    ("user_name", "user_pwd","create_date","user_role")
+    values
+    (#{userName},#{userPwd},#{createDate},#{userRole})
   </insert>
+
+  <!-- 删除管理员 -->
+  <delete id="delAdmin" parameterType="java.util.Map" >
+    delete from clinic_mgr_user
+    where user_id = #{userId}
+  </delete>
+
   <insert id="insertSelective" parameterType="com.mgr.model.UserMdl" >
     insert into "clinic_mgr_user"
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -60,21 +77,6 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mgr.model.UserMdl" >
-    update "clinic_mgr_user"
-    <set >
-      <if test="userName != null" >
-        "user_name" = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="userPwd != null" >
-        "user_pwd" = #{userPwd,jdbcType=VARCHAR},
-      </if>
-      <if test="createDate != null" >
-        "create_date" = #{createDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where "user_id" = #{userId,jdbcType=INTEGER}
-  </update>
   <update id="updateByPrimaryKey" parameterType="com.mgr.model.UserMdl" >
     update "clinic_mgr_user"
     set "user_name" = #{userName,jdbcType=VARCHAR},
