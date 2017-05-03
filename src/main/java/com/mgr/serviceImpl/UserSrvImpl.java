@@ -31,8 +31,8 @@ public class UserSrvImpl implements IUserSrv {
     }
 
     @Override
-    public List<UserMdl> selectList() {
-        return userMapper.selectList();
+    public List<UserMdl> selectList(Map<String,Object> param) {
+        return userMapper.selectList(param);
     }
 
     @Override

@@ -29,6 +29,9 @@
                     <div class="widget-title">
                         <span class="icon"> <i class="icon-th"></i> </span>
                         <h5>管理员列表</h5>
+                        <a style="cursor:pointer;float:right;" href="/cmgr/admin-add">
+                            <button class="btn btn-info btn-mini" style="margin:7px 7px;">新增管理员</button>
+                        </a>
                     </div>
                     <div class="widget-content nopadding">
                         <table class="table table-bordered table-striped">
@@ -48,7 +51,7 @@
                                 <td>
                                     <form th:id="${admin.userId}" style="padding-top:0px !important;padding-bottom:0px !important;">
                                         <a style="cursor:pointer" th:name="${admin.userId}" onclick="AdminList.del(this);">
-                                            <i href="javascript:void(0);" class="icon-twitter"></i> 删除
+                                            <i href="javascript:void(0);" class="icon-remove"></i> 删除
                                         </a>
                                         <input hidden="hidden" name="id" th:value="${admin.userId}"/>
                                     </form>

@@ -24,18 +24,21 @@
   </select>
 
   <!-- 查询管理员列表 -->
-  <select id ="selectList" resultMap="BaseResultMap">
+  <select id ="selectList" parameterType="java.util.Map" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
     from clinic_mgr_user a,clinic_mgr_role b
     where a.user_role = b.id
+    <if test="userName != null">
+      and user_name = #{userName}
+    </if>
     order by user_id
   </select>
 
   <!-- 新增管理员 -->
   <insert id="insert" parameterType="com.mgr.model.UserMdl" >
-    insert into "clinic_mgr_user"
-    ("user_name", "user_pwd","create_date","user_role")
+    insert into clinic_mgr_user
+    (user_name, user_pwd,create_date,user_role)
     values
     (#{userName},#{userPwd},#{createDate},#{userRole})
   </insert>

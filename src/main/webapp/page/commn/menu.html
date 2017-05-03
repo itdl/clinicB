@@ -1,21 +1,11 @@
 <div th:fragment="menu" id="sidebar">
     <ul>
         <li id="sy"><a href="/index"><i class="icon icon-home"></i><span>首页</span></a></li>
-        <!-- op: <out-patient>缩写 -->
-        <li id="jrmz"><a href="/op/today"><i class="icon icon-signal"></i> <span>今日门诊</span></a></li>
-        <li id="ypgl" class="submenu"><a href="javascript:;"><i class="icon icon-th"></i><span>药品管理</span></a>
-            <ul>
-                <li><a href="/drug/add">药品入库</a></li>
-                <li><a href="/drug/check">药品盘点</a></li>
-            </ul>
-        </li>
-        <li id="zsgl" class="submenu"><a href="javascript:;"><i class="icon icon-th-list"></i><span>诊所管理</span></a>
-            <ul>
-                <!--mgrcfg: manager configure 缩写-->
-                <li th:if="${session.isAdm == true}"><a href="/cmgr/admins">管理员配置</a></li>
-                <li><a href="/cmgr/staff">诊所员工配置</a></li>
-                <li><a href="/cmgr/info">诊所信息配置</a></li>
-            </ul>
-        </li>
+        <li id="jrmz"><a href="/op/today"><i class="icon icon-upload"></i> <span>今日门诊</span></a></li>
+        <li id="yprk"><a href="/drug/add"><i class="icon icon-book"></i> <span>药品入库</span></a></li>
+        <li id="yppd"><a href="/drug/check"><i class="icon icon-cog"></i> <span>药品盘点</span></a></li>
+        <li id="glypz" th:if="${session.isAdm == true}"><a href="/cmgr/admins"><i class="icon icon-signal"></i> <span>管理员配置</span></a></li>
+        <li id="ygpz"><a href="/cmgr/staff"><i class="icon icon-heart"></i> <span>诊所员工配置</span></a></li>
+        <li id="yypz"><a href="/yy"><i class="icon icon-tag"></i> <span>诊所预约配置</span></a></li>
     </ul>
 </div>

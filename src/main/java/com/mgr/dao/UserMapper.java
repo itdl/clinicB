@@ -16,5 +16,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(UserMdl record);
 
-    List<UserMdl> selectList();
+    List<UserMdl> selectList(Map<String,Object> param);
 }

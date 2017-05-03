@@ -1,7 +1,7 @@
 var DrugCheck = (function ($) {
     var init = function () {
-        var cla = $("#ypgl").attr("class");
-        $("#ypgl").attr("class",cla==null?"active":"active "+cla);
+        var cla = $("#yppd").attr("class");
+        $("#yppd").attr("class",cla==null?"active":"active "+cla);
         $("form").removeAttr("style");
         if(_res==null)
             return;

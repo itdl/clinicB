@@ -1,7 +1,7 @@
 var AdminList = (function ($) {
     var init = function () {
-        var cla = $("#zsgl").attr("class");
-        $("#zsgl").attr("class",cla==null?"active":"active "+cla);
+        var cla = $("#glypz").attr("class");
+        $("#glypz").attr("class",cla==null?"active":"active "+cla);
         if(_res==null)
             return;
         Global.msg(_msg);

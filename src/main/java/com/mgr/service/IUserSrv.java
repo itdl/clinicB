@@ -18,6 +18,6 @@ public interface IUserSrv {
      */
     int insert(UserMdl user);
     UserMdl selByUnamePwd(Map<String,Object> param);
-    List<UserMdl> selectList();
+    List<UserMdl> selectList(Map<String,Object> param);
     int delAdmin(Map<String,Object> param);
 }
