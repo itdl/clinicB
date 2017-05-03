@@ -4,7 +4,6 @@ import com.mgr.model.UserMdl;
 import com.mgr.service.IUserSrv;
 import com.mgr.util.DateUtil;
 import com.mgr.util.GlobalVar;
-import org.apache.http.protocol.HTTP;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
