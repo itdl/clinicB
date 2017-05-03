@@ -9,6 +9,7 @@ public class YyconfigMdl {
     private String register_date;
     private String register_time;
     private String register_used;
+    private String register_timestr;
 
     public String getRegister_date() {
         return register_date;
@@ -32,5 +33,13 @@ public class YyconfigMdl {
 
     public void setRegister_used(String register_used) {
         this.register_used = register_used;
+    }
+
+    public String getRegister_timestr() {
+        return register_timestr;
+    }
+
+    public void setRegister_timestr(String register_timestr) {
+        this.register_timestr = register_timestr;
     }
 }
