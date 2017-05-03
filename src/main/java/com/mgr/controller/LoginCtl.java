@@ -52,7 +52,7 @@ public class LoginCtl {
         }
         req.getSession().setAttribute(GlobalVar.UINFO,user);
         req.getSession().setAttribute("isAdm",user.getUserId()==1?true:false);
-        return "index";
+        return "redirect:op/today";
     }
 
     /**
