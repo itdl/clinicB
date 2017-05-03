@@ -38,6 +38,12 @@ public class DrugCtl {
         return "drug/drug-"+html;
     }
 
+    /**
+     * 药品添加
+     * @param req
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/addDrug",method = RequestMethod.POST)
     public ModelAndView drugAdd(HttpServletRequest req, ModelAndView model){
         Map<String,Object> param = new HashMap<String,Object>();
@@ -71,6 +77,11 @@ public class DrugCtl {
         return model;
     }
 
+    /**
+     * 药品盘点信息
+     * @param model
+     * @return
+     */
     @RequestMapping(value="/check",method=RequestMethod.GET)
     public ModelAndView drugCheck(ModelAndView model){
         Map<String,Object> param = new HashMap<String,Object>();
@@ -86,6 +97,12 @@ public class DrugCtl {
         return model;
     }
 
+    /**
+     * 药品详情信息查询
+     * @param model
+     * @param req
+     * @return
+     */
     @RequestMapping(value="/details",method=RequestMethod.POST)
     public ModelAndView drugSearch(ModelAndView model,HttpServletRequest req){
         Map<String,Object> param = new HashMap<String,Object>();

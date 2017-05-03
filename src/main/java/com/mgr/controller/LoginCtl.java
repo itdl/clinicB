@@ -34,7 +34,7 @@ public class LoginCtl {
         return "login";
     }
     /**
-     * 登录页面
+     * 主页
      * @return
      */
     @RequestMapping(value="/index",method= RequestMethod.GET )

@@ -21,4 +21,9 @@
         </if>
         order by register_date desc
     </select>
+    <update id="chgConfig" parameterType="java.util.Map">
+        update clinic_mgr_yyconfig
+        set register_time = #{time},register_used = #{used}
+        where register_date = #{date}
+    </update>
 </mapper>

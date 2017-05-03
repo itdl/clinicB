@@ -16,6 +16,7 @@ import java.util.Map;
 public class YyconfigSrvImpl implements YyconfigSrv {
     @Resource
     private YyconfigMapper yyconfigMapper;
+
     @Override
     public int insertDate(Map<String,Object> date) {
         return yyconfigMapper.insertDate(date);
@@ -24,5 +25,10 @@ public class YyconfigSrvImpl implements YyconfigSrv {
     @Override
     public List<YyconfigMdl> selCfgDate(Map<String, Object> date) {
         return yyconfigMapper.selCfgDate(date);
+    }
+
+    @Override
+    public int chgConfig(Map<String, Object> param) {
+        return yyconfigMapper.chgConfig(param);
     }
 }

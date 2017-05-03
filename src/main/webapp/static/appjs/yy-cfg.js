@@ -11,7 +11,7 @@ var YyCfg = (function ($) {
         }
     }
 
-    var subCfg = function () {
+    var subCfg = function (node) {
         var param = {};
         var time = "";
         $('input:checkbox[name=times]:checked').each(function() {
@@ -23,7 +23,14 @@ var YyCfg = (function ($) {
         var used = $('input:radio[name=radios]:checked').val();
         if(used != "")
             param.used = used;
-        $.post("")
+        param.date = node.id.substring(0,node.id.indexOf('.'));
+        if(param.time!='1,2,3' && used!='0'){
+            Global.msg(param.date+"有停诊信息,【是否停诊】选项请选择停诊!");
+            return ;
+        }
+        $.post("/yy/chg",param,function(data){
+            Global.msg(data.msg);
+        },'json');
     }
     return {
         init: init,

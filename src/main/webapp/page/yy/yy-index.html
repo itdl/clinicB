@@ -53,11 +53,11 @@
                                     <td class="center">
                                         <div class="controls" id="used">
                                             <input type="radio" value="1" name="radios"/>正常
-                                            <input type="radio" value="2" name="radios"/>停诊
+                                            <input type="radio" value="0" name="radios"/>停诊
                                         </div>
                                     </td>
                                     <td class="center">
-                                        <a style="cursor:pointer" onclick="YyCfg.subCfg();">
+                                        <a style="cursor:pointer" th:id="${yycfg.register_date}" onclick="YyCfg.subCfg(this);">
                                             <i href="javascript:void(0);" class="icon-twitter"></i> 提交
                                         </a>
                                     </td>

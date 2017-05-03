@@ -50,15 +50,34 @@ public class YyCtl {
         return model;
     }
 
+    /**
+     * 停诊信息配置
+     * @param req
+     * @return
+     */
     @RequestMapping(value="/chg",method=RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> cfgChg(HttpServletRequest req){
         Map<String,Object> param = new HashMap<String,Object>();
-
-
-        return null;
-
-
-
+        if(req.getParameter("date")==null){
+            param.put("result","T");
+            param.put("msg","预约配置更新成功!");
+            return param;
+        }
+        param.put("date",req.getParameter("date"));
+        param.put("time",req.getParameter("time"));
+        param.put("used",req.getParameter("used"));
+        try{
+            yyconfigSrv.chgConfig(param);
+            param.clear();
+            param.put("result","T");
+            param.put("msg","预约配置更新成功!");
+        }catch(Exception e){
+            e.printStackTrace();
+            param.clear();
+            param.put("result","F");
+            param.put("msg","网络开小差了亲!");
+        }
+        return param;
     }
 }

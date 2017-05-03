@@ -137,6 +137,11 @@ public class UserCtl {
         return model;
     }
 
+    /**
+     * 校验是否登录或者是否是超级管理员用户
+     * @param req
+     * @return
+     */
     private boolean validAdmin(HttpServletRequest req){
         UserMdl user = (UserMdl)req.getSession().getAttribute(GlobalVar.UINFO);
         if(user.getUserRole() == -1)

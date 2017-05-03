@@ -11,4 +11,5 @@ import java.util.Map;
 public interface YyconfigSrv {
     int insertDate(Map<String,Object> date);
     List<YyconfigMdl> selCfgDate(Map<String,Object> date);
+    int chgConfig(Map<String,Object> param);
 }
