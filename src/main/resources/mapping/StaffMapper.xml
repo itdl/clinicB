@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mgr.dao.StaffMapper">
+    <resultMap id="staff" type="com.mgr.model.StaffMdl">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="card" property="card"/>
+        <result column="phone" property="phone"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="birthday" property="birthday"/>
+        <result column="year_work" property="year_work"/>
+        <result column="pro" property="pro"/>
+        <result column="old_pro" property="old_pro"/>
+        <result column="isjob" property="isjob"/>
+        <result column="job_date" property="job_date"/>
+        <result column="unjob_date" property="unjob_date"/>
+        <result column="address" property="address"/>
+        <result column="pay" property="pay"/>
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,name,card,phone,sex,age,birthday,year_work,
+        pro,old_pro,isjob,job_date,unjob_date,address,pay
+    </sql>
+    <!-- 查詢所有員工 -->
+    <select id="selectList" parameterType="java.util.Map" resultMap="staff">
+        select
+        <include refid="Base_Column_List" />
+        from clinic_mgr_staff
+        where 1=1
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        order by id desc
+    </select>
+    <!-- 更新员工 -->
+    <update id="updateStaff" parameterType="com.mgr.model.StaffMdl">
+        update clinic_mgr_staff
+        set name = #{name},card = #{card},phone = #{phone},sex = #{sex}
+            ,birthday = #{birthday},year_work = #{year_work},age = #{age}
+            ,pro = #{pro},old_pro = #{old_pro},isjob = #{isjob},pay = #{pay}
+            ,job_date = #{job_date},unjob_date = #{unjob_date},address = #{address}
+        where id = #{id}
+    </update>
+    <!-- 新增员工 -->
+    <insert id="insertStaff" parameterType="com.mgr.model.StaffMdl">
+        insert into clinic_mgr_staff
+        (name,card,phone,sex,age,birthday,year_work,
+        pro,old_pro,isjob,job_date,unjob_date,address,pay)
+        values
+        (#{name},#{card},#{phone},#{sex},#{age},#{birthday},#{year_work},
+        #{pro},#{old_pro},#{isjob},#{job_date},#{unjob_date},#{address},#{pay})
+    </insert>
+</mapper>

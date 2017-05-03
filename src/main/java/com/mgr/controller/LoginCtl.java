@@ -33,14 +33,6 @@ public class LoginCtl {
     public String login(){
         return "login";
     }
-    /**
-     * 主页
-     * @return
-     */
-    @RequestMapping(value="/index",method= RequestMethod.GET )
-    public String index(){
-        return "index";
-    }
 
     /**
      * 登录跳转到主页
