@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-05-02 01:42:57
+Date: 2017-05-03 14:41:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -110,28 +110,6 @@ INSERT INTO `clinic_mgr_drug` VALUES ('321', '32131', '321', '312', null, '312',
 INSERT INTO `clinic_mgr_drug` VALUES ('213132', '12312', '3123', '3123112', null, '32131', '2017-04-20 00:00:00', '2017-04-18 00:00:00', '321', '123', '312', '312', '21', '123', '12', '2017-04-27 12:51:03', null);
 
 -- ----------------------------
--- Table structure for clinic_mgr_order
--- ----------------------------
-DROP TABLE IF EXISTS `clinic_mgr_order`;
-CREATE TABLE `clinic_mgr_order` (
-  `order_no` varchar(40) COLLATE utf8_bin NOT NULL COMMENT '订单号码',
-  `order_date` timestamp NULL DEFAULT NULL COMMENT '订单生成日期',
-  `order_status` int(1) NOT NULL COMMENT '订单状态',
-  `drug_name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '药品名称',
-  `drug_count` int(8) DEFAULT NULL COMMENT '药品数量',
-  `drug_type` int(3) DEFAULT NULL COMMENT '药品类型',
-  `pay_flag` int(1) DEFAULT NULL COMMENT '支付标志',
-  `cus_ser_status` varchar(20) COLLATE utf8_bin DEFAULT '' COMMENT '售后状态',
-  `unit_price` double(10,2) DEFAULT NULL COMMENT '单价',
-  `all_price` double(10,2) DEFAULT NULL COMMENT '总价格',
-  PRIMARY KEY (`order_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ----------------------------
--- Records of clinic_mgr_order
--- ----------------------------
-
--- ----------------------------
 -- Table structure for clinic_mgr_role
 -- ----------------------------
 DROP TABLE IF EXISTS `clinic_mgr_role`;
@@ -159,13 +137,13 @@ CREATE TABLE `clinic_mgr_user` (
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `user_role` int(4) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_mgr_user
 -- ----------------------------
 INSERT INTO `clinic_mgr_user` VALUES ('1', 'admin', '123', '2017-03-13 11:01:30', '-1');
-INSERT INTO `clinic_mgr_user` VALUES ('2', 'song', '123', '2017-05-02 00:52:41', '1');
+INSERT INTO `clinic_mgr_user` VALUES ('2', 'song', '123', '2017-03-13 11:01:30', '1');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_yyconfig
@@ -181,12 +159,12 @@ CREATE TABLE `clinic_mgr_yyconfig` (
 -- ----------------------------
 -- Records of clinic_mgr_yyconfig
 -- ----------------------------
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-16 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-17 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-18 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-19 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-20 00:00:00', '1,2,3', '0');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-21 00:00:00', '1,2,3', '0');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-22 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-04-27 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-03 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-04 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-05 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-06 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-07 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-08 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-09 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-10 00:00:00', '1,2,3', '0');
 SET FOREIGN_KEY_CHECKS=1;
