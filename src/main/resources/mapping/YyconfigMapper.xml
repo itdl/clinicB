@@ -17,7 +17,7 @@
         from clinic_mgr_yyconfig
         where 1=1
         <if test="registerDate != null">
-            and <![CDATA[ #{registerDate}>register_date ]]>
+            and <![CDATA[ #{registerDate}<register_date ]]>
         </if>
         order by register_date desc
     </select>
