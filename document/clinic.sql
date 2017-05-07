@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-05-03 14:41:04
+Date: 2017-05-08 01:46:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -127,6 +127,36 @@ INSERT INTO `clinic_mgr_role` VALUES ('-1', '超级管理员', '1,2,3,4,5');
 INSERT INTO `clinic_mgr_role` VALUES ('1', '普通管理员', '1,2,3');
 
 -- ----------------------------
+-- Table structure for clinic_mgr_staff
+-- ----------------------------
+DROP TABLE IF EXISTS `clinic_mgr_staff`;
+CREATE TABLE `clinic_mgr_staff` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '标识id号',
+  `edu` int(2) DEFAULT NULL COMMENT '学历 1：博士 2：硕士 3：本科 4：专科 5：高中 6：初中',
+  `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '员工名称',
+  `card` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '身份证id',
+  `phone` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '电话',
+  `sex` int(1) DEFAULT NULL COMMENT '性别',
+  `age` int(3) DEFAULT NULL COMMENT '年龄',
+  `birthday` timestamp NULL DEFAULT NULL COMMENT '出生年月',
+  `year_work` double(4,1) DEFAULT NULL COMMENT '工作年限',
+  `pro` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '职位',
+  `old_pro` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '曾任职位',
+  `isjob` int(1) DEFAULT NULL COMMENT '是否在职 1:在职 2:离职',
+  `job_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '入职日期',
+  `unjob_date` timestamp NULL DEFAULT NULL COMMENT '离职日期',
+  `address` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '住址',
+  `pay` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '薪资',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='员工登记信息';
+
+-- ----------------------------
+-- Records of clinic_mgr_staff
+-- ----------------------------
+INSERT INTO `clinic_mgr_staff` VALUES ('1', '3', '南巷', '2101000000', '18642826976', '1', '20', '1990-04-14 09:00:00', '3.0', '护士', '医院护士护理', '1', '2017-05-05 15:41:57', null, '鞍山', '3500');
+INSERT INTO `clinic_mgr_staff` VALUES ('2', '3', '南巷', '2101000000', '18642826976', '1', '20', '1990-04-14 09:00:00', '3.0', '护士', '医院护士护理', '1', '2017-05-05 15:41:57', null, '鞍山', '3500');
+
+-- ----------------------------
 -- Table structure for clinic_mgr_user
 -- ----------------------------
 DROP TABLE IF EXISTS `clinic_mgr_user`;
@@ -163,8 +193,9 @@ INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-03 00:00:00', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-04 00:00:00', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-05 00:00:00', '1,2,3', '1');
 INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-06 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-07 00:00:00', '1,2,3', '0');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-08 00:00:00', '1,2,3', '0');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-09 00:00:00', '1,2,3', '1');
-INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-10 00:00:00', '1,2,3', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-07 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-08 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-09 00:00:00', '1,2', '0');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-10 00:00:00', '1,2,3', '1');
+INSERT INTO `clinic_mgr_yyconfig` VALUES ('2017-05-11 00:00:00', '1,2', '0');
 SET FOREIGN_KEY_CHECKS=1;
