@@ -19,7 +19,7 @@
         <if test="registerDate != null">
             and <![CDATA[ #{registerDate}<register_date ]]>
         </if>
-        order by register_date desc
+        order by register_date asc
     </select>
     <update id="chgConfig" parameterType="java.util.Map">
         update clinic_mgr_yyconfig

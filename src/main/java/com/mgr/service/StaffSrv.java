@@ -13,9 +13,10 @@ import java.util.Map;
  */
 public interface StaffSrv {
 
-    List<StaffMdl> selectList();
+    List<StaffMdl> selectList(Map<String,Object> param);
 
-    int updateStaff(Map<String, Object> param);
+    int updateStaff(StaffMdl staffMdl);
 
     int insertStaff(StaffMdl staffMdl);
+    int delStaff(Map<String,Object> param);
 }

@@ -12,9 +12,11 @@ import java.util.Map;
  * @time 2017/5/4.
  */
 public interface StaffMapper {
-    List<StaffMdl> selectList();
+    List<StaffMdl> selectList(Map<String,Object> param);
 
-    int updateStaff(Map<String, Object> param);
+    int updateStaff(StaffMdl staffMdl);
 
     int insertStaff(StaffMdl staffMdl);
+
+    int delStaff(Map<String,Object> param);
 }

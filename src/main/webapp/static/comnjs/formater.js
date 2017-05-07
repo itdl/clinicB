@@ -237,5 +237,50 @@ var fmt = {
 		default:
 			return "未知";
 		}
-	}
+	},
+    /**
+     * 格式化在职情况
+     * @param source
+     * @returns {String}
+     */
+    formatIsJob : function(source) {
+        if (typeof source == 'undefined' || !source) {
+            return "未知";
+        }
+        switch (source) {
+            case 1:
+                return "在职";
+            case 2:
+                return "离职";
+            default:
+                return "未知";
+        }
+    },
+    /**
+     * 格式化学历
+     *
+     * @param source
+     * @returns {String}
+     */
+    formatEdu : function(source) {
+        if (typeof source == 'undefined' || !source) {
+            return "未知";
+        }
+        switch (source) {
+            case 1:
+                return "博士";
+            case 2:
+                return "硕士";
+            case 3:
+                return "本科";
+            case 4:
+                return "专科";
+            case 5:
+                return "高中";
+            case 6:
+                return "初中";
+            default:
+                return "未知";
+        }
+    },
 };

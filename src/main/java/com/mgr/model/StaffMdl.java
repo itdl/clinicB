@@ -21,6 +21,7 @@ public class StaffMdl {
     private String unjob_date;
     private String address;
     private double pay;
+    private int edu;
 
     public int getId() {
         return id;
@@ -140,5 +141,13 @@ public class StaffMdl {
 
     public void setPay(double pay) {
         this.pay = pay;
+    }
+
+    public int getEdu() {
+        return edu;
+    }
+
+    public void setEdu(int edu) {
+        this.edu = edu;
     }
 }
