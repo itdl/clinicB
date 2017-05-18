@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-05-08 01:46:55
+Date: 2017-05-18 23:11:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -68,7 +68,7 @@ CREATE TABLE `clinic_client_user` (
   `user_jzd` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `user_sms` varchar(30) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_client_user
@@ -77,6 +77,8 @@ INSERT INTO `clinic_client_user` VALUES ('1', 'songshijun', '0', '1', '121212121
 INSERT INTO `clinic_client_user` VALUES ('2', 'fsfa', '0', '1', '3123131', '2017-04-19 10:44:58', '32131', '313213', '21321313');
 INSERT INTO `clinic_client_user` VALUES ('3', '法撒旦法', '0', '1', '123', '2017-04-19 10:45:02', '123', '3123123', '312312312');
 INSERT INTO `clinic_client_user` VALUES ('4', '测试账号', '0', '1', '1234', '2017-04-19 10:45:08', '123', '12432411313', '123123123');
+INSERT INTO `clinic_client_user` VALUES ('6', 'fss', '0', '1', '210283199009164012', '2017-05-03 00:00:00', '123', '1232131', '155555555');
+INSERT INTO `clinic_client_user` VALUES ('7', 'aa', '0', '1', '210283199009164012', '2017-05-10 00:00:00', '123', '131231', '18642826976');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_drug
@@ -118,13 +120,14 @@ CREATE TABLE `clinic_mgr_role` (
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
   `auths` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_mgr_role
 -- ----------------------------
 INSERT INTO `clinic_mgr_role` VALUES ('-1', '超级管理员', '1,2,3,4,5');
 INSERT INTO `clinic_mgr_role` VALUES ('1', '普通管理员', '1,2,3');
+INSERT INTO `clinic_mgr_role` VALUES ('2', '医生', '1');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_staff
@@ -148,7 +151,7 @@ CREATE TABLE `clinic_mgr_staff` (
   `address` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '住址',
   `pay` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '薪资',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='员工登记信息';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='员工登记信息';
 
 -- ----------------------------
 -- Records of clinic_mgr_staff
@@ -167,13 +170,14 @@ CREATE TABLE `clinic_mgr_user` (
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `user_role` int(4) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of clinic_mgr_user
 -- ----------------------------
-INSERT INTO `clinic_mgr_user` VALUES ('1', 'admin', '123', '2017-03-13 11:01:30', '-1');
-INSERT INTO `clinic_mgr_user` VALUES ('2', 'song', '123', '2017-03-13 11:01:30', '1');
+INSERT INTO `clinic_mgr_user` VALUES ('1', 'root', 'root', '2017-03-13 11:01:30', '-1');
+INSERT INTO `clinic_mgr_user` VALUES ('2', 'admin', 'admin', '2017-03-13 11:01:30', '1');
+INSERT INTO `clinic_mgr_user` VALUES ('3', 'doctor', 'doctor', '2017-03-13 11:01:30', '2');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_yyconfig
