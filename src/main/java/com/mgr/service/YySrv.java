@@ -10,4 +10,6 @@ import java.util.Map;
  */
 public interface YySrv {
     List<YyRegisterMdl> selTodayYyList(Map<String,Object> param);
+    List<YyRegisterMdl> selResumeList(Map<String,Object> param);
+    int selStoods(Map<String,Object> param);
 }

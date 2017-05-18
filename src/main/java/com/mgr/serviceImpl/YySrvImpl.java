@@ -21,4 +21,14 @@ public class YySrvImpl implements YySrv {
     public List<YyRegisterMdl> selTodayYyList(Map<String,Object> param) {
         return yyMapper.selTodayYyList(param);
     }
+
+    @Override
+    public List<YyRegisterMdl> selResumeList(Map<String, Object> param) {
+        return yyMapper.selResumeList(param);
+    }
+
+    @Override
+    public int selStoods(Map<String, Object> param) {
+        return yyMapper.selStoods(param);
+    }
 }

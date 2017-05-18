@@ -6,6 +6,7 @@
         <li id="yppd"><a href="/drug/check"><i class="icon icon-cog"></i> <span>药品盘点</span></a></li>
         <li id="glypz" th:if="${session.role == 'admin'}"><a href="/cmgr/admins"><i class="icon icon-signal"></i> <span>管理员配置</span></a></li>
         <li id="ygpz" th:if="${session.role != 'doctor'}"><a href="/cmgr/staff"><i class="icon icon-heart"></i> <span>诊所员工配置</span></a></li>
-        <li id="yypz" th:if="${session.role != 'doctor'}"><a href="/yy"><i class="icon icon-tag"></i> <span>诊所预约配置</span></a></li>
+        <li id="yypz" th:if="${session.role != 'doctor'}"><a href="/yy"><i class="icon icon-tag"></i><span>诊所预约配置</span></a></li>
+        <li id="blck"><a href="/op/resume"><i class="icon icon-tag"></i><span>就诊病历查看</span></a></li>
     </ul>
 </div>

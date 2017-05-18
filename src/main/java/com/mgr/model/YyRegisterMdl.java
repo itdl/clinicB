@@ -16,8 +16,12 @@ public class YyRegisterMdl {
     private int stood;
     private int isCancel;
     private String userName;
+    private int userSex;
+    private String userIsshefn;
+    private String userJzd;
     private String userSms;
     private int registerCount;
+    private int stoodAcount;
 
     public int getId() {
         return id;
@@ -129,5 +133,37 @@ public class YyRegisterMdl {
 
     public void setUserSms(String userSms) {
         this.userSms = userSms;
+    }
+
+    public int getUserSex() {
+        return userSex;
+    }
+
+    public void setUserSex(int userSex) {
+        this.userSex = userSex;
+    }
+
+    public String getUserIsshefn() {
+        return userIsshefn;
+    }
+
+    public void setUserIsshefn(String userIsshefn) {
+        this.userIsshefn = userIsshefn;
+    }
+
+    public String getUserJzd() {
+        return userJzd;
+    }
+
+    public void setUserJzd(String userJzd) {
+        this.userJzd = userJzd;
+    }
+
+    public int getStoodAcount() {
+        return stoodAcount;
+    }
+
+    public void setStoodAcount(int stoodAcount) {
+        this.stoodAcount = stoodAcount;
     }
 }

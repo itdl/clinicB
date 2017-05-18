@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 | 药品-管理</title>
+    <link th:replace="commn/head :: head"/>
+    <link rel="stylesheet" th:href="@{/static/appcss/main.css}"/>
+</head>
+<body>
+<!--公共div-->
+<div th:replace="commn/head :: _div"></div>
+<!--顶部左侧工具栏-->
+<div th:replace="commn/toolbar :: topbar"></div>
+<!--顶部右侧搜索-->
+<div th:replace="commn/toolbar :: search"></div>
+<!--菜单-->
+<div th:replace="commn/menu :: menu"></div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom"><i class="icon-home"></i> 药品管理</a>
+            <a class="current">药品详情</a>
+        </div>
+    </div>
+    <div style="padding:0 15px 0 15px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content nopadding">
+                        <form class="form-horizontal" id="drug">
+                            <table style="width:90%" align="center">
+                                <tr>
+                                    <td style="width:50%">
+                                        <div class="control-group">
+                                            <label class="control-label control-label-left">患者名称：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.userName}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width:50%">
+                                        <div class="control-group" style="border:0">
+                                            <label class="control-label">联系方式：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.userSms}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">患者性别：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.userSex == 0?'男':'女'}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">证件号码：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.userIsshefn}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label control-label-left">预约时间：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.registerDate}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label">职业信息：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.workInfo}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">预约次数：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.registerTime}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">爽约次数：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.stoodAcount}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">工作地址：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.workAddr}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">患者住址：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.userJzd}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">病情描述：</label>
+                                            <div class="controls" style="border:none;">
+                                                <input th:value="${patient.remarks}" style="padding-left:5px;border:none;" class="span8 mask text"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="commn/toolbar :: footer"></div>
+<div th:replace="commn/js :: js"></div>
+<script type="text/javascript">
+    $(function () {
+        var cla = $("#blck").attr("class");
+        $("#blck").attr("class",cla==null?"active":"active "+cla);
+        $("input").attr("readonly","readonly");
+    });
+</script>
+</body>
+</html>
