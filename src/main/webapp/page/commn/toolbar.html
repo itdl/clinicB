@@ -3,7 +3,7 @@
         <li class="dropdown" id="profile-messages">
             <a href="javascript:void(0);" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
                 <i class="icon icon-user"></i>
-                <span class="text">欢迎Admin</span><b class="caret"></b>
+                <span class="text" th:text="'欢迎'+ ${session.user}"></span><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
                 <li><a href="javascript:void(0);"><i class="icon-user"></i> 我的资料</a></li>

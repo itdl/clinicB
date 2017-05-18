@@ -1,6 +1,5 @@
 package com.mgr.controller;
 
-import com.mgr.config.ParamCfg;
 import com.mgr.model.UserMdl;
 import com.mgr.service.IUserSrv;
 import com.mgr.util.GlobalVar;
@@ -51,7 +50,8 @@ public class LoginCtl {
             return "redirect:/";
         }
         req.getSession().setAttribute(GlobalVar.UINFO,user);
-        req.getSession().setAttribute("isAdm",user.getUserId()==1?true:false);
+        req.getSession().setAttribute("user",user.getUserName());
+        req.getSession().setAttribute("role",getAuth(user.getUserRole()));
         return "redirect:op/today";
     }
 
@@ -67,5 +67,18 @@ public class LoginCtl {
         req.getSession().invalidate();
         mv.setViewName("/");
         return mv;
+    }
+
+    private String getAuth(int role){
+        switch (role){
+            case -1:
+                return "admin";
+            case 1:
+                return "user";
+            case 2:
+                return "doctor";
+            default:
+                return null;
+        }
     }
 }
