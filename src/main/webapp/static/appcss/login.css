@@ -950,5 +950,7 @@ div.bt-prev-dark{
 	height:31px;
 	cursor:hand;
 }
-
+.pull-right{
+float:initial !important:
+}
 
