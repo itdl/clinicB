@@ -1,9 +1,9 @@
 <div th:fragment="topbar" id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
         <li class="dropdown" id="profile-messages">
-            <a href="javascript:void(0);" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
+            <a href="javascript:void(0);" class="dropdown-toggle">
                 <i class="icon icon-user"></i>
-                <span class="text" th:text="'欢迎'+ ${session.user}"></span><b class="caret"></b>
+                <span class="text" th:text="'欢迎'+ ${session.user}"></span>
             </a>
             <ul class="dropdown-menu">
                 <li><a href="javascript:void(0);"><i class="icon-user"></i> 我的资料</a></li>
@@ -15,10 +15,6 @@
         </li>
     </ul>
 </div>
-<!--<div th:fragment="search" id="search">-->
-    <!--<input type="text" placeholder="输入搜索内容..."/>-->
-    <!--<button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>-->
-<!--</div>-->
 <div th:fragment="footer" class="row-fluid">
     <div id="footer" class="span12"> 2017 &copy; MPC-CLINIC .</div>
 </div>
