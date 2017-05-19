@@ -34,5 +34,9 @@
         VALUES (#{code},#{name},#{type},#{attention},#{price},#{format},#{prd_date},#{valid_date},#{shape}
         ,#{counts},#{prd_phone},#{prd_firm},#{uses},#{dosage},#{remark},#{create_date},#{update_date})
     </insert>
-
+    <update id="updateDrugAct" parameterType="java.util.Map">
+        UPDATE clinic_mgr_drug
+        SET counts = #{counts}
+        WHERE code = #{code}
+    </update>
 </mapper>

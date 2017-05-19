@@ -11,5 +11,6 @@ import java.util.Map;
 public interface DrugSrv {
     int addDrug(Map<String,Object> param);
     List<DrugMdl> selDrug(Map<String,Object> param);
+    int updateDrugAct(Map<String,Object> param);
 }
 

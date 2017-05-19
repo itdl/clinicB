@@ -26,4 +26,9 @@ public class DrugSrvImpl implements DrugSrv {
     public List<DrugMdl> selDrug(Map<String, Object> param) {
         return drugMapper.selDrug(param);
     }
+
+    @Override
+    public int updateDrugAct(Map<String, Object> param) {
+        return drugMapper.updateDrugAct(param);
+    }
 }

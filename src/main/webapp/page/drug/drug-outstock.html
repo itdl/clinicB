@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 | 药品-管理</title>
+    <link th:replace="commn/head :: head"/>
+    <link rel="stylesheet" th:href="@{/static/appcss/main.css}"/>
+</head>
+<body>
+<!--公共div-->
+<div th:replace="commn/head :: _div"></div>
+<!--顶部左侧工具栏-->
+<div th:replace="commn/toolbar :: topbar"></div>
+<!--顶部右侧搜索-->
+<div th:replace="commn/toolbar :: search"></div>
+<!--菜单-->
+<div th:replace="commn/menu :: menu"></div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom"><i class="icon-home"></i> 药品管理</a>
+            <a class="current">药品盘点</a>
+        </div>
+    </div>
+    <div style="padding:0 15px 0 15px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-th"></i> </span>
+                        <h5>药品列表</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>药品编码</th>
+                                <th>药品名称</th>
+                                <th>药品数量</th>
+                                <th>有效日期</th>
+                                <th>出库数量</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="drugs != null" th:each="drug : ${drugs}" class="odd gradeX">
+                                <td class="center" th:text="${drug.code}"/>
+                                <td class="center" th:text="${drug.name}"/>
+                                <td class="center" th:text="${drug.counts}"/>
+                                <td class="center" th:text="${drug.valid_date}"/>
+                                <td class="center">
+                                    <input id="outAct" placeholder="请输入出库数量" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                           onafterpaste="this.value=this.value.replace(/\D/g,'')" style="border: 1px solid #ddd"/>
+                                </td>
+                                <td>
+                                    <form th:id="${drug.code}" style="padding-top:0px !important;padding-bottom:0px !important;">
+                                        <a style="cursor:pointer" th:name="${drug.code}" onclick="DrugOutStock.drugOut(this);">
+                                            <i href="javascript:void(0);" class="icon-twitter"></i> 点击出库
+                                        </a>
+                                        <input hidden="hidden" name="code" th:value="${drug.code}+'_'+${drug.counts}"/>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="commn/toolbar :: footer"></div>
+<div th:replace="commn/js :: js"></div>
+<script th:inline="javascript">var _msg = [[${msg}]];
+var _res = [[${flag}]];</script>
+<script src="/static/appjs/drug-outstock.js"></script>
+</body>
+</html>
