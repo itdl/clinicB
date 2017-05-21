@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50610
 File Encoding         : 65001
 
-Date: 2017-05-18 23:11:32
+Date: 2017-05-21 16:33:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -87,9 +87,9 @@ DROP TABLE IF EXISTS `clinic_mgr_drug`;
 CREATE TABLE `clinic_mgr_drug` (
   `code` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '商品编码',
   `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '商品名称',
-  `type` int(3) NOT NULL COMMENT '商品类型',
+  `type` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '商品类型',
   `attention` varchar(255) COLLATE utf8_bin DEFAULT '' COMMENT '注意事项',
-  `price` double(10,2) DEFAULT NULL COMMENT '处方价格',
+  `price` double(100,2) DEFAULT NULL COMMENT '处方价格',
   `format` varchar(20) COLLATE utf8_bin DEFAULT '' COMMENT '规格',
   `prd_date` timestamp NULL DEFAULT NULL COMMENT '生产日期',
   `valid_date` timestamp NULL DEFAULT NULL COMMENT '有效日期',
@@ -108,8 +108,9 @@ CREATE TABLE `clinic_mgr_drug` (
 -- ----------------------------
 -- Records of clinic_mgr_drug
 -- ----------------------------
+INSERT INTO `clinic_mgr_drug` VALUES ('213132', '12312', '3123', '3123112', null, '32131', '2017-04-20 00:00:00', '2017-04-18 00:00:00', '321', '122', '312', '312', '21', '123', '12', '2017-04-27 12:51:03', null);
 INSERT INTO `clinic_mgr_drug` VALUES ('321', '32131', '321', '312', null, '312', '2017-04-27 00:00:00', '2017-04-04 00:00:00', '312', '312', '321', '321', '321', '312', '321', '2017-04-27 12:51:29', null);
-INSERT INTO `clinic_mgr_drug` VALUES ('213132', '12312', '3123', '3123112', null, '32131', '2017-04-20 00:00:00', '2017-04-18 00:00:00', '321', '123', '312', '312', '21', '123', '12', '2017-04-27 12:51:03', null);
+INSERT INTO `clinic_mgr_drug` VALUES ('gdrer234', '藥品1', '42wrer', 'fewfwffd暗色凤鳚', '100.90', '防守打法', '2017-05-05 00:00:00', '2017-05-10 00:00:00', '防守打法', '123', '3123123', '3131231错符文', '范围而', '日3234', '方法344', '2017-05-21 16:31:36', '2017-05-21 16:31:37');
 
 -- ----------------------------
 -- Table structure for clinic_mgr_role
