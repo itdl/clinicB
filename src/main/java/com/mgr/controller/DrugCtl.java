@@ -56,7 +56,7 @@ public class DrugCtl {
         param.put("prd_date",req.getParameter("prd_date"));
         param.put("valid_date",req.getParameter("valid_date"));
         param.put("shape",req.getParameter("shape"));
-        param.put("counts",req.getParameter("counts"));
+        param.put("counts",Integer.parseInt(req.getParameter("counts")));
         param.put("prd_phone",req.getParameter("prd_phone"));
         param.put("prd_firm",req.getParameter("prd_firm"));
         param.put("uses",req.getParameter("uses"));
@@ -64,7 +64,7 @@ public class DrugCtl {
         param.put("remark",req.getParameter("remark"));
         param.put("create_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
         param.put("update_date", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
-        param.put("price", DateUtil.FormatDate(new Date(),"yyyy-MM-dd HH:mm:ss"));
+        param.put("price", Double.parseDouble(req.getParameter("price")));
         model.setViewName("drug/drug-add");
         try{
             drugSrv.addDrug(param);
