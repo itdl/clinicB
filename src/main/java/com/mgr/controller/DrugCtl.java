@@ -29,15 +29,15 @@ public class DrugCtl {
     @Resource
     private DrugSrv drugSrv;
 
-    /**
-     * 页面跳转
-     * @param html
-     * @return
-     */
-    @RequestMapping(value="/{html}")
-    public String htmlGet(@PathVariable String html){
-        return "drug/drug-"+html;
-    }
+//    /**
+//     * 页面跳转
+//     * @param html
+//     * @return
+//     */
+//    @RequestMapping(value="/{html}")
+//    public String htmlGet(@PathVariable String html){
+//        return "drug/drug-"+html;
+//    }
 
     /**
      * 药品添加
@@ -204,5 +204,27 @@ public class DrugCtl {
             param.put("msg","网络异常了亲!");
         }
         return param;
+    }
+
+    @RequestMapping(value = "/select",method = RequestMethod.POST)
+    public ModelAndView select(HttpServletRequest request,ModelAndView mv){
+        mv.setViewName("drug/drug-check");
+        Map<String,Object> param = new HashMap<String,Object>();
+        if(request.getParameter("ser_name")!=null){
+            param.put("name","%"+request.getParameter("ser_name").trim()+"%");
+            mv.addObject("name",request.getParameter("ser_name").trim());
+        }
+        if(request.getParameter("ser_code")!=null){
+            param.put("code","%"+request.getParameter("ser_code").trim()+"%");
+            mv.addObject("code",request.getParameter("ser_code").trim());
+        }
+        List<DrugMdl> drugs = drugSrv.search(param);
+        if(drugs.size()==0){
+            mv.addObject("result","F");
+            mv.addObject("msg","未查询到药品信息");
+        }else{
+            mv.addObject("drugs",drugs);
+        }
+        return mv;
     }
 }

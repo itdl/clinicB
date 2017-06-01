@@ -39,4 +39,17 @@
         SET counts = #{counts}
         WHERE code = #{code}
     </update>
+    <select id="search" parameterType="java.util.Map" resultMap="drug">
+        SELECT code, name, type,attention,price,format,prd_date
+        ,valid_date,shape,counts,prd_phone,prd_firm,uses,dosage,remark
+        FROM clinic_mgr_drug
+        WHERE 1=1
+        <if test="code != null">
+            AND code LIKE #{code}
+        </if>
+        <if test="name != null">
+            AND name LIKE #{name}
+        </if>
+        ORDER BY code
+    </select>
 </mapper>

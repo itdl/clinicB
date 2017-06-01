@@ -13,9 +13,20 @@ var DrugCheck = (function ($) {
         node.action = '/drug/details';
         node.submit();
     }
+
+    var select = function(){
+        var selform = $("#select")[0];
+        if($("#ser_code").val().trim()=='')
+            $("#ser_code").val(null);
+        if($("#ser_name").val().trim()=='')
+            $("#ser_name").val(null);
+        selform.submit();
+    }
+
     return {
         init: init,
-        goDetail:goDetail
+        goDetail:goDetail,
+        select:select
     }
 })(jQuery)
 $(function () {

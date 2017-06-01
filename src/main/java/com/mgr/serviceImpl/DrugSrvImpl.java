@@ -14,6 +14,7 @@ import java.util.Map;
  */
 @Service
 public class DrugSrvImpl implements DrugSrv {
+
     @Resource
     private DrugMapper drugMapper;
 
@@ -30,5 +31,10 @@ public class DrugSrvImpl implements DrugSrv {
     @Override
     public int updateDrugAct(Map<String, Object> param) {
         return drugMapper.updateDrugAct(param);
+    }
+
+    @Override
+    public List<DrugMdl> search(Map<String, Object> param) {
+        return drugMapper.search(param);
     }
 }

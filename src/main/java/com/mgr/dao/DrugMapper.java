@@ -12,4 +12,5 @@ public interface DrugMapper {
     int addDrug(Map<String,Object> param);
     List<DrugMdl> selDrug(Map<String,Object> param);
     int updateDrugAct(Map<String,Object> param);
+    List<DrugMdl> search(Map<String,Object> param);
 }
