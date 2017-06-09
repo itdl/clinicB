@@ -1,5 +1,6 @@
 package com.mgr.controller;
 
+import com.alibaba.dubbo.common.json.JSON;
 import com.mgr.model.StaffMdl;
 import com.mgr.service.StaffSrv;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -100,23 +102,37 @@ public class StaffCtl {
             model.addObject("msg","电话号不能为空");
             return model;
         }
+        Map<String,String[]> param = req.getParameterMap();
         try{
             StaffMdl staff = new StaffMdl();
-            staff.setAddress(req.getParameter("address"));
-            staff.setAge(Integer.parseInt(req.getParameter("age")));
-            staff.setBirthday(req.getParameter("birthday"));
+            staff.setAddress((!param.containsKey("address"))||req.getParameter("address").equals("")
+                    ?"无":req.getParameter("address"));
+            staff.setAge((!param.containsKey("age"))||param.get("age")[0].equals("")
+                    ?0:Integer.parseInt(req.getParameter("age")));
+            staff.setBirthday((!param.containsKey("birthday"))||req.getParameter("birthday").equals("")
+                    ?null:req.getParameter("birthday"));
             staff.setCard(req.getParameter("card"));
-            staff.setEdu(Integer.parseInt(req.getParameter("edu")));
-            staff.setIsjob(Integer.parseInt(req.getParameter("isjob")));
-            staff.setJob_date(req.getParameter("job_date"));
+            staff.setEdu((!param.containsKey("edu"))||req.getParameter("edu").equals("")
+                    ?-1:Integer.parseInt(req.getParameter("edu")));
+            staff.setIsjob((!param.containsKey("isjob"))||req.getParameter("isjob").equals("")
+                    ?-1:Integer.parseInt(req.getParameter("isjob")));
+            staff.setJob_date((!param.containsKey("job_date"))||req.getParameter("job_date").equals("")
+                    ?null:req.getParameter("job_date"));
             staff.setName(req.getParameter("name"));
-            staff.setOld_pro(req.getParameter("old_pro"));
-            staff.setPay(Double.parseDouble(req.getParameter("pay")));
-            staff.setPhone(req.getParameter("phone"));
-            staff.setPro(req.getParameter("pro"));
-            staff.setSex(Integer.parseInt(req.getParameter("sex")));
-            staff.setUnjob_date(req.getParameter("unjob_date"));
-            staff.setYear_work(Double.parseDouble(req.getParameter("year_work")));
+            staff.setOld_pro((!param.containsKey("old_pro"))||req.getParameter("old_pro").equals("")
+                    ?"无":req.getParameter("old_pro"));
+            staff.setPay((!param.containsKey("pay"))||req.getParameter("pay").equals("")
+                    ?0:Double.parseDouble(req.getParameter("pay")));
+            staff.setPhone((!param.containsKey("phone"))||req.getParameter("phone").equals("")
+                    ?"无":req.getParameter("phone"));
+            staff.setPro((!param.containsKey("pro"))||req.getParameter("pro").equals("")
+                    ?"无":req.getParameter("pro"));
+            staff.setSex((!param.containsKey("sex"))||req.getParameter("sex").equals("")
+                    ?-1:Integer.parseInt(req.getParameter("sex")));
+            staff.setUnjob_date((!param.containsKey("unjob_date"))||req.getParameter("unjob_date").equals("")
+                    ?null:req.getParameter("unjob_date"));
+            staff.setYear_work((!param.containsKey("year_work"))||req.getParameter("year_work").equals("")
+                    ?0:Double.parseDouble(req.getParameter("year_work")));
             staffSrv.insertStaff(staff);
             model.addObject("msg","添加成功!");
             model.addObject("result","T");

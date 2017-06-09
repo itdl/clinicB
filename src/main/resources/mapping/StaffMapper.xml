@@ -52,11 +52,35 @@
     <!-- 新增员工 -->
     <insert id="insertStaff" parameterType="com.mgr.model.StaffMdl">
         insert into clinic_mgr_staff
-        (name,card,phone,sex,age,birthday,year_work,
-        pro,old_pro,isjob,job_date,unjob_date,address,pay,edu)
+        (name,card,phone
+        <if test="sex != null">,sex</if>
+        <if test="age != null">,age</if>
+        <if test="birthday != null">,birthday</if>
+        <if test="year_work != null">,year_work</if>
+        <if test="pro != null">,pro</if>
+        <if test="old_pro != null">,old_pro</if>
+        <if test="isjob != null">,isjob</if>
+        <if test="job_date != null">,job_date</if>
+        <if test="unjob_date != null">,unjob_date</if>
+        <if test="address != null">,address</if>
+        <if test="pay != null">,pay</if>
+        <if test="edu != null">,edu</if>
+        )
         values
-        (#{name},#{card},#{phone},#{sex},#{age},#{birthday},#{year_work},
-        #{pro},#{old_pro},#{isjob},#{job_date},#{unjob_date},#{address},#{pay},#{edu})
+        (#{name},#{card},#{phone}
+        <if test="sex != null">,#{sex}</if>
+        <if test="age != null">,#{age}</if>
+        <if test="birthday != null">,#{birthday}</if>
+        <if test="year_work != null">,#{year_work}</if>
+        <if test="pro != null">,#{pro}</if>
+        <if test="old_pro != null">,#{old_pro}</if>
+        <if test="isjob != null">,#{isjob}</if>
+        <if test="job_date != null">,#{job_date}</if>
+        <if test="unjob_date != null">,#{unjob_date}</if>
+        <if test="address != null">,#{address}</if>
+        <if test="pay != null">,#{pay}</if>
+        <if test="edu != null">,#{edu}</if>
+        )
     </insert>
     <!-- 删除员工 -->
     <delete id="delStaff" parameterType="java.util.Map">
