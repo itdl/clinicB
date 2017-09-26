@@ -9,7 +9,6 @@
 1. mongodb结构自行设计
 2. 框架使用phantomjs
 3. 天眼查demo演示参考：http://www.tianyancha.com/search?key=%E7%99%BE%E5%BA%A6&searchType=company&checkFrom=searchBox
-时间：截止到4月9日晚22:00之前，使用QQ或微信或钉钉联系刘磊，远程演示效果
 
 
 第二次课
@@ -20,4 +19,3 @@
    3.1. 每次程序从待清洗池中取出一个企业全称
    3.2. 根据企业全称，通过天眼查，爬取到企业的基本工商信息，并存储到mongodb中
    注意：期间如果发现IP被屏蔽了，请用代理
-时间：截止到5月第一周周末
