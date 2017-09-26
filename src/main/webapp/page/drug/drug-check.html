@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 | 药品-管理</title>
+    <link th:replace="commn/head :: head"/>
+    <link rel="stylesheet" th:href="@{/static/appcss/main.css}"/>
+</head>
+<body>
+<!--公共div-->
+<div th:replace="commn/head :: _div"></div>
+<!--顶部左侧工具栏-->
+<div th:replace="commn/toolbar :: topbar"></div>
+<!--顶部右侧搜索-->
+<div th:replace="commn/toolbar :: search"></div>
+<!--菜单-->
+<div th:replace="commn/menu :: menu"></div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom"><i class="icon-home"></i> 药品管理</a>
+            <a class="current">药品盘点</a>
+        </div>
+    </div>
+    <div style="padding:10px 0 0 15px;font-size: 13px;">
+        <table>
+            <tr>
+                <td>
+                    <form id="select" method="post" action="/drug/select">
+                        <strong>药品编码：</strong><input type="text" name="ser_code" id="ser_code" th:value="${code != null? code:''}"
+                                                     style="margin-bottom: 0;border-radius:6px;"/>&nbsp;
+                        <strong>药品名称：</strong><input type="text" name="ser_name" id="ser_name" th:value="${name != null? name:''}"
+                                                     style="margin-bottom: 0;border-radius:6px;"/>&nbsp;
+                    </form>
+                </td>
+                <td>
+                    <a style="cursor:pointer;">
+                        <button type="submit" class="btn btn-info btn-mini" onclick="DrugCheck.select();"
+                                style="margin:7px 7px;font-size:14px;height: 24px;"> 查&nbsp;&nbsp;询
+                        </button>
+                    </a>
+                    <a style="cursor:pointer;" href="/drug/check">
+                        <button class="btn btn-info btn-mini" style="font-size:14px;height: 24px;"> 清&nbsp;&nbsp;空
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="padding:0 15px 0 15px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-th"></i> </span>
+                        <h5>药品列表</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>药品编码</th>
+                                <th>药品名称</th>
+                                <th>药品数量</th>
+                                <th>有效日期</th>
+                                <th>生产厂家</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="drugs != null" th:each="drug : ${drugs}" class="odd gradeX">
+                                <td class="center" th:text="${drug.code}"/>
+                                <td class="center" th:text="${drug.name}"/>
+                                <td class="center" th:text="${drug.counts}"/>
+                                <td class="center" th:text="${drug.valid_date}"/>
+                                <td class="center" th:text="${drug.prd_firm}"/>
+                                <td>
+                                    <form th:id="${drug.code}"
+                                          style="padding-top:0px !important;padding-bottom:0px !important;">
+                                        <a style="cursor:pointer" th:name="${drug.code}"
+                                           onclick="DrugCheck.goDetail(this);">
+                                            <i href="javascript:void(0);" class="icon-twitter"></i> 查看详情
+                                        </a>
+                                        <input hidden="hidden" name="code" th:value="${drug.code}"/>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="commn/toolbar :: footer"></div>
+<div th:replace="commn/js :: js"></div>
+<script th:inline="javascript">var _msg = [[${msg}]];
+var _res = [[${flag}]];</script>
+<script src="/static/appjs/drug-check.js"></script>
+</body>
+</html>

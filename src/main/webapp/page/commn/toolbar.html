@@ -1,0 +1,20 @@
+<div th:fragment="topbar" id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+            <a href="javascript:void(0);" class="dropdown-toggle">
+                <i class="icon icon-user"></i>
+                <span class="text" th:text="'欢迎'+ ${session.user}"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:void(0);"><i class="icon-user"></i> 我的资料</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0);"><i class="icon-check"></i> 我的任务</a></li>
+            </ul>
+        </li>
+        <li class=""><a title="" href="/quit"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a>
+        </li>
+    </ul>
+</div>
+<div th:fragment="footer" class="row-fluid">
+    <div id="footer" class="span12"> 2017 &copy; MPC-CLINIC .</div>
+</div>

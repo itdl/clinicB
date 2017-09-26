@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mgr.dao.YyconfigMapper" >
+
+    <resultMap id="yyconfig" type="com.mgr.model.YyconfigMdl">
+        <result column="register_date" property="register_date"></result>
+        <result column="register_time" property="register_time"></result>
+        <result column="register_used" property="register_used"></result>
+    </resultMap>
+    <insert id="insertDate" parameterType="java.util.Map" >
+        insert into clinic_mgr_yyconfig (register_date, register_time, register_used)
+        values (#{registerDate}, #{registerTime}, #{registerUsed})
+        ON DUPLICATE KEY UPDATE register_date = #{registerDate}
+    </insert>
+    <select id="selCfgDate" parameterType="java.util.Map" resultMap="yyconfig" >
+        select register_date,register_time,register_used
+        from clinic_mgr_yyconfig
+        where 1=1
+        <if test="registerDate != null">
+            and <![CDATA[ #{registerDate}<register_date ]]>
+        </if>
+        order by register_date asc
+    </select>
+    <update id="chgConfig" parameterType="java.util.Map">
+        update clinic_mgr_yyconfig
+        set register_time = #{time},register_used = #{used}
+        where register_date = #{date}
+    </update>
+</mapper>

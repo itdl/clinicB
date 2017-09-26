@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mgr.dao.YyMapper">
+    <resultMap id="YyRegisters" type="com.mgr.model.YyRegisterMdl">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_sms" property="userSms"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="rpt_type" property="rptType"/>
+        <result column="work_info" property="workInfo"/>
+        <result column="work_addr" property="workAddr"/>
+        <result column="remarks" property="remarks"/>
+        <result column="rpt_flg" property="rptFlg"/>
+        <result column="stood" property="stood"/>
+        <result column="is_cancel" property="isCancel"/>
+        <result column="yy_count" property="registerCount"/>
+    </resultMap>
+    <resultMap id="YyConfigs" type="com.mgr.model.YyconfigMdl">
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="register_used" property="registerUsed"/>
+    </resultMap>
+
+    <resultMap id="Resumes" type="com.mgr.model.YyRegisterMdl">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_sms" property="userSms"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="register_time" property="registerTime"/>
+        <result column="rpt_type" property="rptType"/>
+        <result column="work_info" property="workInfo"/>
+        <result column="work_addr" property="workAddr"/>
+        <result column="remarks" property="remarks"/>
+        <result column="rpt_flg" property="rptFlg"/>
+        <result column="stood" property="stood"/>
+        <result column="is_cancel" property="isCancel"/>
+        <result column="yy_count" property="registerCount"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="user_isshefn" property="userIsshefn"/>
+        <result column="user_jzd" property="userJzd"/>
+    </resultMap>
+    <!-- 查询是否已经预约 -->
+    <select id="selTodayYyList" parameterType="java.util.Map" resultMap="YyRegisters">
+        SELECT id,a.user_id,b.user_name,b.user_sms,register_date,register_time,rpt_type,
+        work_info,work_addr,remarks,rpt_flg,stood,is_cancel
+        FROM clinic_client_register a
+        LEFT JOIN clinic_client_user b ON a.user_id = b.user_id
+        WHERE 1=1
+        <if test="sms != null">
+            AND b.user_sms=#{sms}
+        </if>
+        <if test="userId != null">
+            AND a.user_id=#{userId}
+        </if>
+        <if test="registerDate != null">
+            AND register_date=#{registerDate}
+        </if>
+        <if test="registerTime != null">
+            AND register_time=#{registerTime}
+        </if>
+        <if test="rptFlg != null">
+            AND rpt_flg=#{rptFlg}
+        </if>
+        ORDER BY id DESC
+    </select>
+
+    <!-- 查询病历列表 -->
+    <select id="selResumeList" parameterType="java.util.Map" resultMap="Resumes">
+        SELECT id,a.user_id,b.user_name,b.user_sms,register_date,register_time,rpt_type,
+        work_info,work_addr,remarks,rpt_flg,stood,is_cancel,user_sex,user_isshefn,user_jzd
+        FROM clinic_client_register a
+        LEFT JOIN clinic_client_user b ON a.user_id = b.user_id
+        WHERE 1=1
+        <if test="userId != null">
+            AND a.user_id=#{userId}
+        </if>
+        ORDER BY register_date DESC
+    </select>
+
+    <!-- 查询用户爽约次数 -->
+    <select id="selStoods" parameterType="java.util.Map" resultType="int">
+        SELECT count(register_date)
+        FROM clinic_client_register
+        WHERE 1=1
+        <if test="userId != null">
+            AND user_id=#{userId}
+        </if>
+        <if test="rptFlg != null">
+            AND rpt_flg=#{rptFlg}
+        </if>
+    </select>
+
+</mapper>

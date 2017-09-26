@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <property name="LOG_HOME" value="${LOG_PATH}" />
+    <!-- 日志输出到控制台 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
+        </layout>
+    </appender>
+    <!-- 日志输出到文件 -->
+    <appender name="alllog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/CLINICMGR_${SPRING_PROFILES_ACTIVE}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/backup/CLINICMGR_${SPRING_PROFILES_ACTIVE}%d{yyyyMMdd}.%i.log
+            </fileNamePattern>
+            <maxHistory>100</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- 不同环境日志配置 -->
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="stdout" />
+            <appender-ref ref="alllog" />
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <root level="info">
+            <appender-ref ref="alllog" />
+        </root>
+    </springProfile>
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="alllog" />
+        </root>
+    </springProfile>
+    <!-- Mybatis日志，debug可输出SQL文 -->
+    <logger name="com.mgr.dao" additivity="false" level="debug">
+        <springProfile name="dev">
+            <appender-ref ref="stdout" />
+        </springProfile>
+        <appender-ref ref="alllog" />
+    </logger>
+</configuration>

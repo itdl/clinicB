@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 |登录</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/plugin/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/plugin/bootstrap/css/matrix-login.css"/>
+    <link rel="stylesheet" href="/plugin/bootstrap/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/static/appcss/commn.css"/>
+</head>
+<body>
+<div id="loginbox">
+    <form id="loginform" class="form-vertical">
+        <div class="control-group normal_text">
+            <h3><img src="/plugin/bootstrap/img/logo.png" alt="Logo"/></h3>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lg"><i class="icon-user"></i></span>
+                    <input name="uName" type="text" placeholder="用户名" onkeydown="Login.keyLogin()"/>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                    <input name="uPwd" type="password" placeholder="密码" onkeydown="Login.keyLogin()"/>
+                </div>
+            </div>
+        </div>
+        <div id="recoverform" class="control-group form-vertical">
+            <p th:text="${msg}" class="normal_text"></p>
+        </div>
+        <div class="form-actions">
+            <span style="text-align: center;"><a id="login" class="btn btn-success"> 登&nbsp;&nbsp;录</a></span>
+        </div>
+    </form>
+</div>
+<script src="/plugin/bootstrap/js/jquery.min.js"></script>
+<script src="/plugin/bootstrap/js/matrix.login.js"></script>
+<script src="/static/appjs/login.js"></script>
+<script th:inline="javascript"> var fg = [[${fg}]];</script>
+</body>
+</html>

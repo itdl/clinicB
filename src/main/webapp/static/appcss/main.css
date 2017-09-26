@@ -1,0 +1,14 @@
+.form-horizontal .control-group{
+    border:none !important;
+}
+.form-horizontal .control-label{
+    width:100px;
+}
+.form-horizontal .controls{
+    margin-left: 0 !important;
+    width:100%;
+}
+/*form{*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 20px;*/
+/*}*/

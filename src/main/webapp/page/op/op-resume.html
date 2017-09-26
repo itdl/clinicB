@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 | 诊所配置-管理员</title>
+    <link th:replace="commn/head :: head"/>
+    <link rel="stylesheet" th:href="@{/static/appcss/main.css}"/>
+</head>
+<body>
+<!--公共div-->
+<div th:replace="commn/head :: _div"></div>
+<!--顶部左侧工具栏-->
+<div th:replace="commn/toolbar :: topbar"></div>
+<!--顶部右侧搜索-->
+<div th:replace="commn/toolbar :: search"></div>
+<!--菜单-->
+<div th:replace="commn/menu :: menu"></div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom"><i class="icon-home"></i> 诊所管理</a>
+            <a class="current">就诊病历查看</a>
+        </div>
+    </div>
+    <div style="padding:0 15px 0 15px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-th"></i> </span>
+                        <h5>病历列表</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>患者姓名</th>
+                                <th>联系方式</th>
+                                <th>就诊时间</th>
+                                <th>症状</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="admins != null" th:each="patient : ${patients}" class="odd gradeX">
+                                <td class="center" th:text="${patient.userName}"/>
+                                <td class="center" th:text="${patient.userSms}"/>
+                                <td class="center" th:text="${patient.registerDate}"/>
+                                <td class="center" th:text="${patient.remarks}"/>
+                                <td>
+                                    <form th:id="${patient.userId}" style="padding-top:0px !important;padding-bottom:0px !important;">
+                                        <a style="cursor:pointer" th:name="${patient.userId}" onclick="Resume.detail(this);">
+                                            <i href="javascript:void(0);" class="icon-twitter"></i> 查看详情
+                                        </a>
+                                        <input hidden="hidden" name="userId" th:value="${patient.userId}"/>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="commn/toolbar :: footer"></div>
+<div th:replace="commn/js :: js"></div>
+<script th:inline="javascript">var _msg = [[${msg}]];var _res = [[${flag}]];</script>
+<script src="/static/appjs/op-resume.js"></script>
+</body>
+</html>

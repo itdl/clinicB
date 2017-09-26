@@ -1,0 +1,34 @@
+server:
+  port: 9090
+  contextPath: /
+  compression:enabled: true
+  connection-timeout: 60000
+  session:cookie:http-only: true
+  session:timeout: 1200
+  tomcat:uri-encoding: UTF-8
+spring:
+  #jsp渲染配置
+#  mvc:
+#    view:
+#      suffix: .jsp
+#      prefix: /WEB-INF/views/
+  #thymeleaf渲染
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML5
+    suffix: .html
+    prefix: /page/
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      validation-query: select 1
+      test-on-borrow: false
+      test-while-idle: true
+mybatis:
+  mapperLocations: classpath:mapping/*.xml
+
+#日志配置
+logging:
+  config: classpath:log/logback.xml

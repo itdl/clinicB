@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 配置文件路径 -->
+    <properties resource="generatorCfg.properties"/>
+    <!-- 数据库驱动包位置 -->
+    <classPathEntry location="${genr.jdbc.driverpath}" />
+
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+            <property name="suppressDate" value="false" /><!-- 是否生成注释代时间戳 -->
+        </commentGenerator>
+        <!-- 数据库链接URL、用户名、密码 -->
+        <jdbcConnection driverClass="${genr.jdbc.driver}" connectionURL="${genr.jdbc.url}"
+                        userId="${genr.jdbc.user}" password="${genr.jdbc.pwd}">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="${genr.tagpage.mdl}" targetProject="${genr.tagprot.src}">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="false" />
+        </javaModelGenerator>
+        <!-- 生成的映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="${genr.tagpage.map}" targetProject="${genr.tagprot.map}">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="false"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${genr.tagpage.dao}" targetProject="${genr.tagprot.src}">
+            <!-- 是否添加概要 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <table tableName="clinic_mgr_user"
+               delimitIdentifiers="true" delimitAllColumns="true"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+    </context>
+</generatorConfiguration>

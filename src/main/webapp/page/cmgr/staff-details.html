@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>张育发内科诊所管理系统 | 药品-管理</title>
+    <link th:replace="commn/head :: head"/>
+    <link rel="stylesheet" th:href="@{/static/appcss/main.css}"/>
+</head>
+<body>
+<!--公共div-->
+<div th:replace="commn/head :: _div"></div>
+<!--顶部左侧工具栏-->
+<div th:replace="commn/toolbar :: topbar"></div>
+<!--顶部右侧搜索-->
+<div th:replace="commn/toolbar :: search"></div>
+<!--菜单-->
+<div th:replace="commn/menu :: menu"></div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom"><i class="icon-home"></i> 诊所员工管理</a>
+            <a class="current">员工详情</a>
+        </div>
+    </div>
+    <div style="padding:0 15px 0 15px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-align-justify"></i></span>
+                        <h5>详情信息</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form class="form-horizontal" id="staff" style="padding-top: 10px;padding-bottom: 20px;">
+                            <table style="width:90%" align="center">
+                                <tr>
+                                    <td style="width:50%">
+                                        <div class="control-group">
+                                            <label class="control-label control-label-left">员工名称：</label>
+                                            <div class="controls">
+                                                <input type="text" id="name" name="name" placeholder="请输入员工名称"
+                                                       class="span8 mask text" th:value="${staff.name}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width:50%">
+                                        <div class="control-group" style="border:0">
+                                            <label class="control-label">身份证号码：</label>
+                                            <div class="controls">
+                                                <input type="text" id="card" name="card" placeholder="请输入员工身份证号"
+                                                       class="span8 mask text" th:value="${staff.card}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label control-label-left">联系电话：</label>
+                                            <div class="controls">
+                                                <div class="input-prepend"><span class="add-on">+86:</span>
+                                                    <input type="text" placeholder="请输入电话号码" class="span8 mask text"
+                                                           id="phone" name="phone" th:value="${staff.phone}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label">性别：</label>
+                                            <div class="controls">
+                                                <select id="sex" name="sex" placeholder="请输入性别" class="span8 mask">
+                                                    <option value="1">男</option>
+                                                    <option value="2">女</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">年龄：</label>
+                                            <div class="controls">
+                                                <input type="text" id="age" name="age" placeholder="请输入年龄"
+                                                       class="span8 mask text"  th:value="${staff.age==0?null:staff.age}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">出生年月：</label>
+                                            <div class="controls">
+                                                <input type="text" id="birthday" name="birthday"
+                                                       data-date-format="yyyy-mm-dd" placeholder="请选择出生年月日"
+                                                       class="datepicker span8"  th:value="${staff.birthday}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">工作年限：</label>
+                                            <div class="controls">
+                                                <input type="text" placeholder="请输入工作年限" id="year_work" name="year_work"
+                                                       class="span8 mask text" th:value="${staff.year_work==0.0?null:staff.year_work}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">曾任职位：</label>
+                                            <div class="controls">
+                                                <input type="text" placeholder="请输入曾任职位" id="old_pro" name="old_pro"
+                                                       class="span8 mask text" th:value="${staff.old_pro==0?null:staff.old_pro}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label">学历：</label>
+                                            <div class="controls">
+                                                <select placeholder="请输入学历" id="edu" name="edu" class="span8 mask">
+                                                    <option value="1">博士</option>
+                                                    <option value="2">硕士</option>
+                                                    <option value="3">本科</option>
+                                                    <option value="4">专科</option>
+                                                    <option value="5">高中</option>
+                                                    <option value="6">初中</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">是否离职：</label>
+                                            <div class="controls">
+                                                <select placeholder="请选择在职状态" id="isjob" name="isjob" class="span8 mask">
+                                                    <option value="1">在职</option>
+                                                    <option value="2">离职</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">入职时间：</label>
+                                            <div class="controls">
+                                                <input type="text" id="job_date" name="job_date"
+                                                       data-date-format="yyyy-mm-dd" placeholder="请选择入职日期"
+                                                       class="datepicker span8" th:value="${staff.job_date}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group">
+                                            <label class="control-label  control-label-left">离职时间：</label>
+                                            <div class="controls">
+                                                <input type="text" id="unjob_date" name="unjob_date"
+                                                       data-date-format="yyyy-mm-dd" placeholder="请选择离职日期"
+                                                       class="datepicker span8" th:value="${staff.unjob_date}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group warning">
+                                            <label class="control-label control-label-left">住址：</label>
+                                            <div class="controls">
+                                                <input type="text" id="address" name="address" placeholder="请输入住址"
+                                                       class="span8 mask text" th:value="${staff.address}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="control-group error">
+                                            <label class="control-label">薪资：</label>
+                                            <div class="controls">
+                                                <input type="text" placeholder="00.00￥" id="pay" name="pay"
+                                                       class="span8 mask text" th:value="${staff.pay==0.0?null:staff.pay}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="control-group error">
+                                            <label class="control-label">职位：</label>
+                                            <div class="controls">
+                                                <input type="text" placeholder="请输入职位" id="pro" name="pro"
+                                                       class="span8 mask text" th:value="${staff.pro}"/>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="display: none;">
+                                        <input name="id" hidden="hidden" th:value="${staff.id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="control-group success" align="center">
+                                            <button class="btn btn-success" id="add" th:if="${staff.id==0}" onclick="StaffDetails.update(this);">  新增  </button>&nbsp;
+                                            <button class="btn btn-success" id="update" th:if="${staff.id!=0}" onclick="StaffDetails.update(this);">  更新  </button>&nbsp;
+                                            <button class="btn btn-success" id="del" th:if="${staff.id!=0}"  onclick="StaffDetails.del(this);">  删除  </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div th:replace="commn/toolbar :: footer"></div>
+<div th:replace="commn/js :: js"></div>
+<script th:inline="javascript">var _msg = [[${msg}]];
+var _res = [[${result}]];
+var _staff = [[${staff}]];</script>
+<script src="/static/appjs/staff-details.js"></script>
+</body>
+</html>
